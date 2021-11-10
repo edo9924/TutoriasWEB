@@ -86,7 +86,8 @@
     <a class="nav-link active" aria-current="page" href="#">Perfil</a>
     <br>
     <div class="centered">
-    <p>Bienvenido <?php echo $emilio; ?>.</p>
+    <p>Bienvenido <?php echo $nombre; ?>.</p>
+    <p>Correo: <?php echo $emilio; ?>.</p>
     <br>
     <p>No tienes ningún curso comprado.</p>
     </div>

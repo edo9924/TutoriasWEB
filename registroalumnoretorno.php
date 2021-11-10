@@ -42,13 +42,13 @@
             $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
              if(!preg_match("/^[a-zA-Z ]*$/", $_name)) {
-                    $f_NameErr = '<div class="alert alert-danger">
+                    $_NameErr = '<div class="alert alert-danger">
                             Sólo letras y espacios permitidos.
                         </div>';
                 }
             if(!filter_var($_email, FILTER_VALIDATE_EMAIL)) {
                     $_emailErr = '<div class="alert alert-danger">
-                            El formato del e-mail es inválido
+                            El formato del e-mail es inválido.
                         </div>';
                 }
                 if(!preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{6,20}$/", $_password)) {

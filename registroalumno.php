@@ -1,4 +1,5 @@
 <?php include('registroalumnoretorno.php'); ?>
+<?php error_reporting(!E_WARNING | !E_NOTICE); ?>
 <!DOCTYPE html>
 <html>
 <head>
