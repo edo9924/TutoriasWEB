@@ -47,7 +47,7 @@
             // chequeando que las columnas sean mayor a cero
             if($rowCount > 0){
                 while($row = mysqli_fetch_array($query)){
-                    $nombre = $row['nombre'];
+                    $nombre = $row['alumno_nombre'];
                     $email = $row['alumno_email'];
                     $pass_word = $row['alumno_password'];
                     $id = $row['alumno_id'];

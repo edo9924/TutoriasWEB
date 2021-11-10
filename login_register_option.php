@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', true);
+error_reporting(!E_WARNING | !E_NOTICE);
 
 $alumno = "alumno";
 $tutor = "tutor";

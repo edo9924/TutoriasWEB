@@ -1,3 +1,4 @@
+<?php error_reporting(!E_WARNING | !E_NOTICE); ?>
 <?php include('login-tutorretorno.php'); ?>
 <!DOCTYPE html>
 <html>
