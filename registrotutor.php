@@ -40,10 +40,7 @@
           Tu Cuenta
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="registroalumno.php">Aún no tienes cuenta, ¡Regístrate aquí!</a>
-          <a class="dropdown-item" href="registrotutor.php">¿Quieres hacer clases? ¡Regístrate como tutor!</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="login-alumno.php">Iniciar sesión</a>
+          <?php echo $login_register_option; ?>
         </div>
       </li>
 
