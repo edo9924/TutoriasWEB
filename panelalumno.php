@@ -34,6 +34,15 @@
       text-align: center;
     }
 
+    .centrardiv{
+      margin: auto;
+      width: 90%;
+    }
+
+    .centrartexto{
+      text-align: center;
+    }
+
 </style>
 </head>
 <body>
@@ -85,15 +94,14 @@
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="panelalumno.php">Perfil</a>
     <br>
-    <div class="centered">
-    <p>Bienvenido <?php echo $nombre; ?>.</p>
-    <p>Correo: <?php echo $emilio; ?>.</p>
+    <div class="centrardiv">
+    <p class="centrartexto">Bienvenido <?php echo $nombre; ?>.</p>
+    <p class="centrartexto">Correo: <?php echo $emilio; ?>.</p>
     <br>
-    <p>No tienes ningún curso comprado.</p>
     </div>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="datoscompraalumno.php">Datos de compra</a>
+    <a class="nav-link" href="datoscompraalumno.php">Tus Cursos</a>
   </li>
   </ul>
   <br>
