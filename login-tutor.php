@@ -100,7 +100,7 @@
     <form  action="" method="post">
       <input type="email" id="email" class="fadeIn second" name="email" placeholder="correo">
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In" name="submit" id="submit">
+      <input type="submit" class="fadeIn fourth" value="ENTRAR" name="submit" id="submit">
     </form>
     
     <?php echo $welcomeMsg; ?>
