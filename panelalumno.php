@@ -83,7 +83,7 @@
 <br>
     <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Perfil</a>
+    <a class="nav-link active" aria-current="page" href="panelalumno.php">Perfil</a>
     <br>
     <div class="centered">
     <p>Bienvenido <?php echo $nombre; ?>.</p>
@@ -93,7 +93,7 @@
     </div>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Datos de compra</a>
+    <a class="nav-link" href="datoscompraalumno.php">Datos de compra</a>
   </li>
   </ul>
   <br>
