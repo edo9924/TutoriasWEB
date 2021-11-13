@@ -91,8 +91,7 @@
   </li>
   </ul>
     <div class="centered">
-    <br>
- <!-- FIN PANEL -->
+    <!-- FIN PANEL -->
 
     <h1>Llena los datos del curso.</h1>
     <!-- Formulario-->
@@ -183,7 +182,7 @@
 
     // remove row
     $(document).on('click', '#removeRow', function () {
-      if(contador > 1){
+      if(contador > 0){
         $(this).closest('#inputFormRow').remove();
         contador--;
         var clasesporcurso = contador;
@@ -197,7 +196,7 @@
 </form>
     </div>
   </li>
-    
+    <br>
 
   <!-- Footer -->
   <section class="">
