@@ -35,7 +35,7 @@
 
     .centrardiv{
       margin: auto;
-      width: 60%;
+      width: 50%;
     }
 
 </style>
