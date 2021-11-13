@@ -91,8 +91,7 @@
   </li>
   </ul>
     <div class="centered">
-    <br>
- <!-- FIN PANEL -->
+    <!-- FIN PANEL -->
 
     <h1>Llena los datos del curso.</h1>
     <!-- Formulario-->
@@ -146,21 +145,10 @@
   <h1>Llena los datos de la(s) clase(s).</h1>
   <p>Ingresa un título de clase, su descripción y finalmente el video.</p>
   <!-- inicio menu dinámico -->
-    <div class="row">
-        <div class="col-lg-12">
-            <div id="inputFormRow">
-                <div class="input-group mb-3">
-                    <input type="text" name="title[]" class="form-control m-input" placeholder="Ingresa el título" autocomplete="off">
-                    <input type="text" name="description[]" class="form-control m-input" placeholder="Ingresa la descripción" autocomplete="off">
-                    <input type="file" name="file[]" class="form-control m-input" placeholder="Archivo" autocomplete="off">
-                    <div class="input-group-append">                
-                        <button id="removeRow" type="button" class="btn btn-danger">Remover</button>
-                    </div>
-                </div>
-            </div>
-
+    <div>
             <div id="newRow"></div>
             <button id="addRow" type="button" class="btn btn-info">Añadir Clase</button>
+            <?php echo $emptyError5; ?>
         </div>
     </div>
 <!-- termino menú dinámico -->
@@ -169,12 +157,10 @@
   <button type="submit" id="submit" name="submit" class="btn btn-primary">Subir Curso</button>
   <br>
 </div>
-<input type="hidden" name="clasesporcurso" value="contador" id="clasesporcurso">
 <script type="text/javascript">
-    <?php $cantidadClases = 1; ?>
-    <?php $_SESSION['clasesencurso'] = $cantidadClases; ?>
     // add row
-    let contador = 1;
+
+    let contador = 0;
     $("#addRow").click(function () {
         if(contador < 3){
         var html = '';
@@ -196,7 +182,7 @@
 
     // remove row
     $(document).on('click', '#removeRow', function () {
-      if(contador > 1){
+      if(contador > 0){
         $(this).closest('#inputFormRow').remove();
         contador--;
         var clasesporcurso = contador;
@@ -206,10 +192,11 @@
 
     });
 </script>
+<input type="hidden" name="clasesporcurso" value="contador" id="clasesporcurso">
 </form>
     </div>
   </li>
-    
+    <br>
 
   <!-- Footer -->
   <section class="">
