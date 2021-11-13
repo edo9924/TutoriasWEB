@@ -14,13 +14,16 @@
         $thumbnail     = $_POST["thumbnail"];
         $precio        = $_POST["seleccionPrecio"];
         $clasesporcurso= $_POST["clasesporcurso"];
+        $clase_titulo[]  = $_POST["title[]"];
+        $clase_descripcion[]  = $_POST["description[]"];
+        $clase_archivo[] = $_POST["file[]"];
 
         // verify if email elsexists
         $nameCheck = $connection->query( "SELECT * FROM CURSO WHERE curso_nombre = '{$name}' ");
         $rowCount = $nameCheck->fetchColumn();
 
         // PHP validation
-        if(!empty($name) && !empty($descripcion) && !empty($thumbnail) && !empty($precio) ){
+        if(!empty($name) && !empty($descripcion) && !empty($thumbnail) && !empty($precio) && clasesporcurso != "contador" ){
             
             // check if user email already exist
             if($rowCount > 0) {
@@ -52,6 +55,8 @@
 
             $sql = $connection->query("INSERT INTO curso (curso_nombre, curso_descripcion, curso_thumb, curso_precio, curso_es_aprobado, curso_id_tutor) 
             VALUES ('{$name}', '{$descripcion}', '{$thumbnail}', '{$precio}', 0, '{$idtutor}')");
+
+            //$sql2 = $connection->query("INSERT INTO clase (clase_id, clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$name}', '{$descripcion}', '{$thumbnail}', '{$precio}', 0, '{$idtutor}')");
             
                 if(!$sql){
                     die("Falló la consulta MySQL!" . mysqli_error($connection));
@@ -83,9 +88,14 @@
                     Es necesario que ingreses un precio.
                 </div>';
             }
+            if($clasesporcurso == "contador"){
+                $emptyError5 = '<div class="alert alert-danger">
+                    Debes agregar almenos una clase.
+                </div>';
+            }
         }
     }
 
-    echo $clasesporcurso;
+    echo $clasesporcurso; 
 
 ?>
