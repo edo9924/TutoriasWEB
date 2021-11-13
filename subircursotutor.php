@@ -69,7 +69,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="formulariocontacto.php">Contact</a>
+        <a class="nav-link" href="formulariocontacto.php">Contacto</a>
       </li>
 
       <li class="nav-item">
