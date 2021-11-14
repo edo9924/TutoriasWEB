@@ -9,21 +9,22 @@
     $idtutor = $_SESSION['id'];
 
     if(isset($_POST["submit"])) {
-        $name          = $_POST["name"];
+        $c_name        = $_POST["name"];
         $descripcion   = $_POST["descripcion"];
         $thumbnail     = $_POST["thumbnail"];
         $precio        = $_POST["seleccionPrecio"];
         $clasesporcurso= $_POST["clasesporcurso"];
-        $clase_titulo[]  = $_POST["title[]"];
-        $clase_descripcion[]  = $_POST["description[]"];
-        $clase_archivo[] = $_POST["file[]"];
+        $clase_titulo  = $_POST["title"];
+        $clase_descripcion  = $_POST["description"];
+        $clase_video = $_POST["file"];
+        $idtutor = $_POST["id"];
 
         // verify if email elsexists
-        $nameCheck = $connection->query( "SELECT * FROM CURSO WHERE curso_nombre = '{$name}' ");
+        $nameCheck = $connection->query( "SELECT * FROM CURSO WHERE curso_nombre = '{$c_name}' ");
         $rowCount = $nameCheck->fetchColumn();
 
         // PHP validation
-        if(!empty($name) && !empty($descripcion) && !empty($thumbnail) && !empty($precio) && clasesporcurso != "contador" ){
+        if(!empty($c_name) && !empty($descripcion) && !empty($thumbnail) && !empty($precio) && $clasesporcurso != "contador" ){
             
             // check if user email already exist
             if($rowCount > 0) {
@@ -54,9 +55,12 @@
                  else {
 
             $sql = $connection->query("INSERT INTO curso (curso_nombre, curso_descripcion, curso_thumb, curso_precio, curso_es_aprobado, curso_id_tutor) 
-            VALUES ('{$name}', '{$descripcion}', '{$thumbnail}', '{$precio}', 0, '{$idtutor}')");
+            VALUES ('{$c_name}', '{$descripcion}', '{$thumbnail}', '{$precio}', 0, '{$idtutor}')");
 
-            //$sql2 = $connection->query("INSERT INTO clase (clase_id, clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$name}', '{$descripcion}', '{$thumbnail}', '{$precio}', 0, '{$idtutor}')");
+            //$selectCurso =  "SELECT * From curso where curso_nombre = '{$c_name}' ";
+            //$query = mysqli_query($connection2, $selectCurso);
+
+            //$sql2 = $connection->query("INSERT INTO clase (clase_titulo, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$name}', '{$descripcion}', '{$thumbnail}', '{$precio}', 0, '{$idtutor}')");
             
                 if(!$sql){
                     die("Falló la consulta MySQL!" . mysqli_error($connection));
@@ -68,9 +72,9 @@
             }
         }
         } else {
-            if(empty($name)){
+            if(empty($c_name)){
                 $emptyError1 = '<div class="alert alert-danger">
-                    Es necesario que ingreses tu nombre.
+                    Es necesario que ingreses un nombre.
                 </div>';
             }
             if(empty($descripcion)){
@@ -96,6 +100,7 @@
         }
     }
 
-    echo $clasesporcurso; 
+    echo $clase_titulo[0];
+    echo $idtutor;
 
 ?>

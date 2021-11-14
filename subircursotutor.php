@@ -99,9 +99,10 @@
 <form action="" method="post">  
     <div class="form-group">
     <label for="InputName">Nombre del curso</label>
-    <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder="Ingresa tu nombre">
+    <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder="Ingresa un nombre para el curso">
     <?php echo $emptyError1; ?>
     <?php echo $_NameErr; ?>
+    <?php echo $name_exist; ?>
   </div>
   <div class="form-group">
     <label for="InputName">¿De qué trata su curso?</label>
@@ -191,6 +192,7 @@
 
 
     });
+
 </script>
 <input type="hidden" name="clasesporcurso" value="contador" id="clasesporcurso">
 </form>
