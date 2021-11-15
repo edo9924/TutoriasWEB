@@ -92,7 +92,7 @@
   </ul>
     <div class="centered">
     <!-- FIN PANEL -->
-<?php echo $success_msg; ?>
+
     <h1>Llena los datos del curso.</h1>
     <!-- Formulario-->
 <div class="d-flex justify-content-center">
@@ -143,8 +143,57 @@
 </div>
 <?php echo $emptyError4; ?>
 
+  <h1>Llena los datos de la(s) clase(s).</h1>
+  <p>Ingresa un título de clase, su descripción y finalmente el video.</p>
+  <!-- inicio menu dinámico -->
+    <div>
+            <div id="newRow"></div>
+            <button id="addRow" type="button" class="btn btn-info">Añadir Clase</button>
+            <?php echo $emptyError5; ?>
+        </div>
+    </div>
+<!-- termino menú dinámico -->
+<br><br>
+
   <button type="submit" id="submit" name="submit" class="btn btn-primary">Subir Curso</button>
   <br>
+</div>
+<script type="text/javascript">
+    // add row
+
+    let contador = 0;
+    $("#addRow").click(function () {
+        if(contador < 3){
+        var html = '';
+        html += '<div id="inputFormRow">';
+        html += '<div class="input-group mb-3">';
+        html += '<input type="text" name="title[]" class="form-control m-input" placeholder="Ingresa el título" autocomplete="off">';
+        html += '<input type="text" name="description[]" class="form-control m-input" placeholder="Ingresa la descripción" autocomplete="off">';
+        html += '<input type="file" name="file[]" class="form-control m-input" placeholder="Archivo" autocomplete="off">';
+        html += '<div class="input-group-append">';
+        html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
+        html += '</div>';
+        html += '</div>';
+        contador++; 
+        $('#newRow').append(html);
+        var clasesporcurso = contador;
+        document.getElementById("clasesporcurso").value = clasesporcurso;
+        }
+    });
+
+    // remove row
+    $(document).on('click', '#removeRow', function () {
+      if(contador > 0){
+        $(this).closest('#inputFormRow').remove();
+        contador--;
+        var clasesporcurso = contador;
+        document.getElementById("clasesporcurso").value = clasesporcurso;
+      }
+
+
+    });
+
+</script>
 <input type="hidden" name="clasesporcurso" value="contador" id="clasesporcurso">
 </form>
     </div>

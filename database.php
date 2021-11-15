@@ -17,4 +17,6 @@
         echo "Database connection failed: " . $e->getMessage();
     }
 
+    $mysqli = new mysqli($hostname, $username, $password, "losktutos");
+
 ?>
