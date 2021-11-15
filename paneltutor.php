@@ -90,6 +90,7 @@
     <p>Correo: <?php echo $emilio; ?>.</p>
     <br>
     <p>En esta parte se detallarán los cursos subidos y sus estadísticas</p>
+    <?php echo $html ?>
     </div>
   </li>
   <li class="nav-item">

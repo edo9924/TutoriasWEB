@@ -13,13 +13,18 @@
         $descripcion   = $_POST["descripcion"];
         $thumbnail     = $_POST["thumbnail"];
         $precio        = $_POST["seleccionPrecio"];
+        $clasesporcurso= $_POST["clasesporcurso"];
+        $clase_titulo  = $_POST["title"];
+        $clase_descripcion  = $_POST["description"];
+        $clase_video = $_POST["file"];
+        $idtutor = $_POST["id"];
 
         // verify if email elsexists
         $nameCheck = $connection->query( "SELECT * FROM CURSO WHERE curso_nombre = '{$c_name}' ");
         $rowCount = $nameCheck->fetchColumn();
 
         // PHP validation
-        if(!empty($c_name) && !empty($descripcion) && !empty($thumbnail) && !empty($precio)){
+        if(!empty($c_name) && !empty($descripcion) && !empty($thumbnail) && !empty($precio) && $clasesporcurso != "contador" ){
             
             // check if user email already exist
             if($rowCount > 0) {
@@ -49,7 +54,13 @@
 
                  else {
 
-            $sql = $connection->query("INSERT INTO curso (curso_nombre, curso_descripcion, curso_thumb, curso_precio, curso_es_aprobado, curso_id_tutor) VALUES ('{$c_name}', '{$descripcion}', '{$thumbnail}', '{$precio}', 0, '{$idtutor}')");
+            $sql = $connection->query("INSERT INTO curso (curso_nombre, curso_descripcion, curso_thumb, curso_precio, curso_es_aprobado, curso_id_tutor) 
+            VALUES ('{$c_name}', '{$descripcion}', '{$thumbnail}', '{$precio}', 0, '{$idtutor}')");
+
+            //$selectCurso =  "SELECT * From curso where curso_nombre = '{$c_name}' ";
+            //$query = mysqli_query($connection2, $selectCurso);
+
+            //$sql2 = $connection->query("INSERT INTO clase (clase_titulo, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$name}', '{$descripcion}', '{$thumbnail}', '{$precio}', 0, '{$idtutor}')");
             
                 if(!$sql){
                     die("Falló la consulta MySQL!" . mysqli_error($connection));
@@ -81,6 +92,15 @@
                     Es necesario que ingreses un precio.
                 </div>';
             }
+            if($clasesporcurso == "contador"){
+                $emptyError5 = '<div class="alert alert-danger">
+                    Debes agregar almenos una clase.
+                </div>';
+            }
         }
     }
+
+    echo $clase_titulo[0];
+    echo $idtutor;
+
 ?>
