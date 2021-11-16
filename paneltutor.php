@@ -6,24 +6,24 @@
   <meta charset="UTF-8">
 	<title>Maqueta Tutorías</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<style>
-		.carousel-item {
- 	 	height: 500px;
-		}
+<style>
+        .carousel-item {
+          height: 500px;
+        }
 
-		.imgcarrousel {
-			height: 450px;
-			width: 100%;
-		}
+        .imgcarrousel {
+            height: 450px;
+            width: 100%;
+        }
 
-		.heightcard {
-			width: 50%;
-			margin-left: 27%;
-		}
+        .heightcard {
+            width: 50%;
+            margin-left: 27%;
+        }
 
-		.btnsearch {
-    	background-color: #FFFFFF;
-		}
+        .btnsearch {
+        background-color: #FFFFFF;
+        }
 
     .cursitotarjeta {
       width: 50%;
@@ -31,6 +31,12 @@
     }
 
     .centered {
+      text-align: center;
+    }
+
+    .centrardiv{
+      margin: auto;
+      width: 50%;
       text-align: center;
     }
 
@@ -81,22 +87,24 @@
 
     <!-- INICIO PANEL -->
 <br>
+
     <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="paneltutor.php">Perfil</a>
+    
+    <div class="centered centrardiv">
     <br>
-    <div class="centered">
     <p>Bienvenido <?php echo $nombre; ?>.</p>
     <p>Correo: <?php echo $emilio; ?>.</p>
     <br>
     <p>En esta parte se detallarán los cursos subidos y sus estadísticas</p>
-    <?php echo $html ?>
     </div>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="subircursotutor.php">Subir Curso</a>
   </li>
   </ul>
+  <?php echo $html ?>
   <br>
 
      <!-- FIN PANEL -->
