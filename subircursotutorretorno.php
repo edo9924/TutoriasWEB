@@ -11,7 +11,8 @@
     if(isset($_POST["submit"])) {
         $c_name        = $_POST["name"];
         $descripcion   = $_POST["descripcion"];
-        $thumbnail     = $_POST["thumbnail"];
+        $thumbnail     = $_FILES["thumbnail"]["tmp_name"];
+        $ImgContent = addslashes(file_get_contents($thumbnail));
         $precio        = $_POST["seleccionPrecio"];
 
         // verify if email elsexists
@@ -19,7 +20,7 @@
         $rowCount = $nameCheck->fetchColumn();
 
         // PHP validation
-        if(!empty($c_name) && !empty($descripcion) && !empty($thumbnail) && !empty($precio)){
+        if(!empty($c_name) && !empty($descripcion) && !empty($ImgContent) && !empty($precio)){
             
             // check if user email already exist
             if($rowCount > 0) {
@@ -32,7 +33,7 @@
 
                 $_name = mysqli_real_escape_string($connection2, $name);
                 $_descripcion = mysqli_real_escape_string($connection2, $email);
-                $_thumbnail = mysqli_real_escape_string($connection2, $password);
+                $_ImgContent = mysqli_real_escape_string($connection2, $password);
                 $_precio = mysqli_real_escape_string($connection2, $password2);
                 
              if(!preg_match("/^[a-zA-Z ]*$/", $_name)) {
@@ -49,7 +50,7 @@
 
                  else {
 
-            $sql = $connection->query("INSERT INTO curso (curso_nombre, curso_descripcion, curso_thumb, curso_precio, curso_es_aprobado, curso_id_tutor) VALUES ('{$c_name}', '{$descripcion}', '{$thumbnail}', '{$precio}', 0, '{$idtutor}')");
+            $sql = $connection->query("INSERT INTO curso (curso_nombre, curso_descripcion, curso_thumb, curso_precio, curso_es_aprobado, curso_id_tutor) VALUES ('{$c_name}', '{$descripcion}', '{$ImgContent}', '{$precio}', 0, '{$idtutor}')");
             
                 if(!$sql){
                     die("Falló la consulta MySQL!" . mysqli_error($connection));
@@ -71,7 +72,7 @@
                     Es necesario que ingreses una descripcion.
                 </div>';
             }
-            if(empty($thumbnail)){
+            if(empty($ImgContent)){
                 $emptyError3 = '<div class="alert alert-danger">
                     Es necesario que ingreses una imágen.
                 </div>';
