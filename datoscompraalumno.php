@@ -100,6 +100,7 @@
   <div class="container" style="width: 28rem;">
     
      <?php echo $html; ?>
+     <?php echo $sin_curso; ?>
   </div>
 </div>
 <br>
