@@ -11,8 +11,8 @@
     if(isset($_POST["submit"])) {
         $c_name        = $_POST["name"];
         $descripcion   = $_POST["descripcion"];
-        $thumbnail     = $_FILES["thumbnail"]["tmp_name"];
-        $ImgContent = addslashes(file_get_contents($thumbnail));
+        $thumbnail     = $_FILES["thumbnail"]['tmp_name'];
+        $ImgContent    = addslashes(file_get_contents($thumbnail));
         $precio        = $_POST["seleccionPrecio"];
 
         // verify if email elsexists
