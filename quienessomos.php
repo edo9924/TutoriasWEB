@@ -1,12 +1,12 @@
+<?php include('login-alumnoretorno.php'); ?>
 <?php include('login_register_option.php'); ?>
-<?php include('datoscompraalumnoretorno.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
 	<title>Maqueta Tutorías</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<style>
+    <style>
 		.carousel-item {
  	 	height: 500px;
 		}
@@ -25,28 +25,30 @@
     	background-color: #FFFFFF;
 		}
 
-    .cursitotarjeta {
-      width: 50%;
-      height: 50%;
+    
+
+    .imgquiensomos{
+      width: 550px;
+      height: 150px;  
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .parrafo{
+        margin-left: 650px;
+      margin-right: 650px;
     }
 
-    .centered {
-      text-align: center;
-    }
-
-    .centrardiv{
-      margin: auto;
-      width: 50%;
-      text-align: center;
-    }
+    
 
 </style>
 </head>
-<body>    
+<body>
 	<!-- Bootstrap JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 	<!-- NAVBBAR -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="index.php">LosK-Tutos</a>
@@ -83,29 +85,26 @@
   </div>
 </nav>
     <!-- FIN NAVBAR -->
-    <!-- INICIO PANEL -->
-    <br>
-    <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link" aria-current="page" href="panelalumno.php">Perfil</a>
-    <br>
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="datoscompraalumno.php">Tus Cursos</a>
-  </li>
-  </ul>
-  <br>
+    <br><br>
 
-     <!-- FIN PANEL -->
-<div class="centrardiv">   
-  <div class="container" style="width: 28rem;">
+    <!-- QUIENES SOMOS -->
+    <div style="text-align: center;">
+    <h2>QUIENES SOMOS</h2>
+    <br>
+    <img src="img/logoquiensomos.png" class="imgquiensomos">
+    <br>
+    <font size=6>
+        <p class="parrafo">Somos un equipo de trabajo y estudiantes de ingenieria en informatica dedicados a ayudar, a los alumnos de primer año de carreras relacionadas con la informatica a travez de cursos online, con el objetivo de mejorar el rendimiento academico y a la vez crear un ingreso extra a los tutores los cuales tambien son estudiantes mas avansados en su carrera informatica.</p>
+    </font>
+    </div>
+    <br>
+    <br>
     
-     <?php echo $html; ?>
-     <?php echo $sin_curso; ?>
-  </div>
-</div>
-<br>
+<!-- QUIENES SOMOS -->
+
+
   <!-- Footer -->
-  <section class="">
+  <section class="footer">
   <footer class="text-center text-white" style="background-color: #0275d8;">
     <div class="container p-4 pb-0">
       <section class="">

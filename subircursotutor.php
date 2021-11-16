@@ -96,7 +96,7 @@
     <h1>Llena los datos del curso.</h1>
     <!-- Formulario-->
 <div class="d-flex justify-content-center">
-<form action="" method="post">  
+<form action="" method="post" enctype="multipart/form-data">  
     <div class="form-group">
     <label for="InputName">Nombre del curso</label>
     <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder="Ingresa un nombre para el curso">

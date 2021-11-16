@@ -13,11 +13,12 @@ $rowCheck = $connection->query("SELECT * FROM HISTORIAL_COMPRA WHERE ALUMNO_ID =
 $rowCount = $rowCheck->fetchColumn();
 
 $row = $result->fetch_array(MYSQLI_NUM);
-
+$j = 0;
 if($rowCount > 0){
 
 	foreach ($result as $fila) {
-		$id_curso =  $fila['curso_id'];
+		$id_curso[$j] =  $fila['curso_id'];
+		$j++;
 	}
 
 } else {
@@ -29,7 +30,6 @@ $query2 = "SELECT tutor.tutor_nombre, curso.curso_nombre, curso.curso_thumb, cur
 FROM historial_compra 
 JOIN curso ON curso.curso_id=historial_compra.curso_id
 JOIN tutor ON curso.curso_id_tutor=tutor.tutor_id
-WHERE historial_compra.curso_id='{$id_curso}'
 AND historial_compra.alumno_id='{$id}'";
 $result2 =$mysqli->query($query2);
 
@@ -37,19 +37,20 @@ $rowCheck2 = $connection->query("SELECT tutor.tutor_nombre, curso.curso_nombre, 
 FROM historial_compra 
 JOIN curso ON curso.curso_id=historial_compra.curso_id
 JOIN tutor ON curso.curso_id_tutor=tutor.tutor_id
-WHERE historial_compra.curso_id='{$id_curso}'
 AND historial_compra.alumno_id='{$id}'");
-$nombre_tutor = array();
-$nombre_curso = array();
-$imagen = array();
-$descripcion = array();
-$fechac = array();
+
 $rowCount2 = $rowCheck2->fetchColumn();
 
 $row2 = $result2->fetch_array(MYSQLI_NUM);
-$i = 0;
-if($rowCount2 > 0){
 
+if($rowCount2 > 0){
+	$nombre_tutor = array();
+	$nombre_curso = array();
+	$imagen = array();
+	$descripcion = array();
+	$fechac = array();
+	$curso_id = array();
+	$i = 0;
 	foreach ($result2 as $fila2) {
 		$curso_id[$i] = $fila2['curso_id'];
 		$nombre_tutor[$i] = $fila2['tutor_nombre'];
@@ -57,24 +58,28 @@ if($rowCount2 > 0){
 		$imagen[$i] = $fila2['curso_thumb'];
 		$descripcion[$i] = $fila2['curso_descripcion'];
 		$fechac[$i] = $fila2['fecha_de_compra'];
-				
+		$i++;	
 	}
 	$curso_max = sizeof($curso_id);
 	$html = "";
-	for	($i = 0; i < $curso_max; i++){
+	for	($i=0; $i < $curso_max; $i++){
+		$html .= '<div class="container" style="width: 28rem;">';
 		$html .= '<div class="card-header text-center">';
-		$html .= '<a>Curso por  '.$nombre_tutor[$i].' </a> ';
+		$html .= "<a>Curso por {$nombre_tutor[$i]} </a> ";
 		$html .= '</div>';
 		$html .= '<div class="card-body text-center">';
-		$html .= '<h5 class="card-title"> '.$nombre_curso[$i].' </h5>';
+		$html .= "<h5 class='card-title'> {$nombre_curso[$i]} </h5>";
 		$html .= '<img src="data:image/jpeg;base64,'.base64_encode( $imagen[$i] ).'" width="300px"/>';
-		$html .= '<p class="card-text"> '.$descripcion[$i].'</p>';
+		$html .= "<p class='card-text'> {$descripcion[$i]}</p>";
 		$html .= '<a href="detallecurso.php" class="btn btn-primary">Entrar</a>';
 		$html .= '</div>';
 		$html .= '<div class="card-footer text-muted text-center">';
-		$html .= '<a>Fecha de compra: '.$fechac[$i].'</a>';
+		$html .= "<a>Fecha de compra: {$fechac[$i]}</a>";
+		$html .= '</div>';
 		$html .= '</div>';
 		$html .= '<br>';
-	}     
+
+	}
+	     
 }
 ?>
