@@ -97,10 +97,12 @@
 
      <!-- FIN PANEL -->
   <div class="container">
-    <div class="card-deck mt-3">
-      <?php echo $html ?>
-      <?php echo $sin_curso; ?>
+    <div class="row">
+      <?php echo $html ?>      
     </div>
+  </div>
+  <div class="centrardiv">
+    <?php echo $sin_curso ?>
   </div>
 <br>
   <!-- Footer -->

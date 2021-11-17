@@ -63,18 +63,20 @@ if($rowCount2 > 0){
 	$curso_max = sizeof($curso_id);
 	$html = "";
 	for	($i=0; $i < $curso_max; $i++){
+		$html .= '<div class="col-md-4 mt-3">';
 		$html .= '<div class="card text-center border-info">';
 		$html .= '<div class="card-header text-center">';
 		$html .= "<a>Curso por {$nombre_tutor[$i]} </a> ";
 		$html .= '</div>';
 		$html .= '<div class="card-body text-center">';
 		$html .= "<h5 class='card-title'> {$nombre_curso[$i]} </h5>";
-		$html .= '<img src="data:image/jpeg;base64,'.base64_encode( $imagen[$i] ).'" width="300px"/>';
+		$html .= '<img src="data:image/jpeg;base64,'.base64_encode( $imagen[$i] ).'" height ="150px" width="300px"/>';
 		$html .= "<p class='card-text'> {$descripcion[$i]}</p>";
 		$html .= '<a href="detallecurso.php" class="btn btn-primary">Entrar</a>';
 		$html .= '</div>';
 		$html .= '<div class="card-footer text-muted text-center">';
 		$html .= "<a>Fecha de compra: {$fechac[$i]}</a>";
+		$html .= '</div>';
 		$html .= '</div>';
 		$html .= '</div>';
 		$html .= '<br>';

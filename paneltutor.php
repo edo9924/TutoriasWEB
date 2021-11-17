@@ -105,7 +105,7 @@
   </li>
   </ul>
   <div class="container">
-  <div class="card-deck mt-3">
+  <div class="row">
   <?php echo $html ?>
   </div>
   </div>

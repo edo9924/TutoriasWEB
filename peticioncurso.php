@@ -96,11 +96,14 @@
   <br>
 
      <!-- FIN PANEL -->
-<div class="centrardiv">   
-  <div class="container" style="width: 28rem;">
-    
-  </div>
-</div>
+    <div class="container">
+      <div class="row">
+        <?php echo $html ?>        
+      </div>
+    </div>
+    <div class="centrardiv">
+      <?php echo $sin_datos ?>
+    </div>
 <br>
   <!-- Footer -->
   <section class="">
