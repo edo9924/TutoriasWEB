@@ -104,11 +104,15 @@
     <a class="nav-link" href="subircursotutor.php">Subir Curso</a>
   </li>
   </ul>
+  <div class="container">
+  <div class="card-deck mt-3">
   <?php echo $html ?>
+  </div>
+  </div>
   <br>
 
      <!-- FIN PANEL -->
-
+     
   <!-- Footer -->
   <section class="">
   <footer class="text-center text-white" style="background-color: #0275d8;">

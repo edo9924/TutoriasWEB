@@ -63,7 +63,7 @@ if($rowCount2 > 0){
 	$curso_max = sizeof($curso_id);
 	$html = "";
 	for	($i=0; $i < $curso_max; $i++){
-		$html .= '<div class="container" style="width: 28rem;">';
+		$html .= '<div class="card text-center border-info">';
 		$html .= '<div class="card-header text-center">';
 		$html .= "<a>Curso por {$nombre_tutor[$i]} </a> ";
 		$html .= '</div>';

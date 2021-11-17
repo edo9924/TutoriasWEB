@@ -42,18 +42,17 @@ $cursos_max = sizeof($id_curso);
 
 	for ($i=0; $i < $cursos_max ; $i++) { 
 		//echo $id_curso[$i];
-		$html .= '<div class="container" style="width: 28rem;">';
+		$html .= '<div class="card text-center border-info">';
 		$html .= '<div class="card-header text-center">';
 		$html .= "<h5 class='card-title'>{$nombre_curso[$i]}</h5>";
 		$html .= '</div>';
 		$html .= '<div class="card-body text-center">';
 		//$html .= "<img src={$thumb_curso[$i]} width='300px'>";
-		$html .= '<img src="data:image/jpeg;base64,'.base64_encode( $thumb_curso[$i] ).'" height ="400px" width="300px"/>';
+		$html .= '<img src="data:image/jpeg;base64,'.base64_encode( $thumb_curso[$i] ).'" height ="200px" width="300px"/>';
 		$html .= "<p class='card-text'>{$descripcion_curso[$i]}</p>";
 		$html .= '<a href="subirclasetutor.php" class="btn btn-primary">Agregar Clases</a>';
 		$html .= '</div>';
 		$html .= '</div>';
-		$html .= '<br>';
 
 	}
 
