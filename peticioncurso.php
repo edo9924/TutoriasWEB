@@ -1,5 +1,5 @@
 <?php include('login_register_option.php'); ?>
-<?php include('datoscompraalumnoretorno.php'); ?>
+<?php include('peticioncursoretorno.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,7 +77,7 @@
       </li>
 
       <li class="nav-item">
-      <a class="nav-link" href="quienessomos.php">¿Quiénes Somos?</a>
+        <a class="nav-link" href="quienessomos.php">¿Quiénes Somos?</a>
       </li>
     </ul>
   </div>
@@ -87,10 +87,10 @@
     <br>
     <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link" aria-current="page" href="panelalumno.php">Perfil</a>
+    <a class="nav-link" aria-current="page" href="paneladmin.php">Perfil</a>
     <br>
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="datoscompraalumno.php">Tus Cursos</a>
+    <a class="nav-link active" aria-current="page" href="peticioncurso.php">Peticiones de Cursos</a>
   </li>
   </ul>
   <br>
@@ -99,8 +99,6 @@
 <div class="centrardiv">   
   <div class="container" style="width: 28rem;">
     
-     <?php echo $html; ?>
-     <?php echo $sin_curso; ?>
   </div>
 </div>
 <br>

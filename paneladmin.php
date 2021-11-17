@@ -1,5 +1,5 @@
+<?php include('paneladminretorno.php'); ?>
 <?php include('login_register_option.php'); ?>
-<?php include('datoscompraalumnoretorno.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,17 +36,21 @@
 
     .centrardiv{
       margin: auto;
-      width: 50%;
+      width: 90%;
+    }
+
+    .centrartexto{
       text-align: center;
     }
 
 </style>
 </head>
-<body>    
+<body>
 	<!-- Bootstrap JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 	<!-- NAVBBAR -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="index.php">LosK-Tutos</a>
@@ -77,33 +81,33 @@
       </li>
 
       <li class="nav-item">
-      <a class="nav-link" href="quienessomos.php">¿Quiénes Somos?</a>
+        <a class="nav-link" href="quienessomos.php">¿Quiénes Somos?</a>
       </li>
     </ul>
   </div>
 </nav>
     <!-- FIN NAVBAR -->
+
     <!-- INICIO PANEL -->
-    <br>
+<br>
     <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link" aria-current="page" href="panelalumno.php">Perfil</a>
+    <a class="nav-link active" aria-current="page" href="paneladmin.php">Perfil</a>
     <br>
+    <div class="centrardiv">
+    <p class="centrartexto">Bienvenido <?php echo $nombre; ?>.</p>
+    <p class="centrartexto">Correo: <?php echo $emilio; ?>.</p>
+    <br>
+    </div>
+  </li>
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="datoscompraalumno.php">Tus Cursos</a>
+    <a class="nav-link" href="peticioncurso.php">Peticiones de Cursos</a>
   </li>
   </ul>
   <br>
 
      <!-- FIN PANEL -->
-<div class="centrardiv">   
-  <div class="container" style="width: 28rem;">
-    
-     <?php echo $html; ?>
-     <?php echo $sin_curso; ?>
-  </div>
-</div>
-<br>
+
   <!-- Footer -->
   <section class="">
   <footer class="text-center text-white" style="background-color: #0275d8;">
