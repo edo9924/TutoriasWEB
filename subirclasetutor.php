@@ -84,7 +84,7 @@
 </nav>
     <!-- FIN NAVBAR -->
 
-    <!-- INICIO PANEL -->
+    <a!-- INICIO PANEL -->
 <br>
   <div class="centereddiv">
   <?php echo $success_msg ?>
@@ -93,15 +93,15 @@
   <!-- inicio menu dinámico -->
     <div>
 
-      <form method="post" action="">
-            <div id="newRow"></div>
-            <button id="addRow" type="button" class="btn btn-info">Añadir Clase</button>
-            <?php echo $emptyError; ?>
-    </div>
+<form method="post" action="">
+<div id="newRow"></div>
+<button id="addRow" type="button" class="btn btn-info">Añadir Clase</button>
+<?php echo $emptyError3; ?>
+</div>
 <!-- termino menú dinámico -->
 <br><br>
-
-  <button type="submit" id="submit" name="submit" class="btn btn-primary">Subir Curso</button>
+  <input type="hidden" name="clasesporcurso" value="contador" id="clasesporcurso">
+  <input type="submit" id="submit" name="submit" class="btn btn-primary" value="Subir Curso">
   <br>
 </div>
 </div>
@@ -124,8 +124,7 @@
         html += '</div>';
         contador++; 
         $('#newRow').append(html);
-        var clasesporcurso = contador;
-        document.getElementById("clasesporcurso").value = clasesporcurso;
+        document.getElementById("clasesporcurso").value = contador;
         }
     });
 
@@ -134,19 +133,18 @@
       if(contador > 0){
         $(this).closest('#inputFormRow').remove();
         contador--;
-        var clasesporcurso = contador;
-        document.getElementById("clasesporcurso").value = clasesporcurso;
+        document.getElementById("clasesporcurso").value = contador;
       }
 
 
     });
 
 </script>
-<input type="hidden" name="clasesporcurso" value="contador" id="clasesporcurso">
 </form>
     </div>
   </li>
     <br>
+    <?php echo $name_exist ?>
     <?php echo $emptyError1 ?>
     <?php echo $emptyError2 ?>
     <?php echo $emptyError4  ?>

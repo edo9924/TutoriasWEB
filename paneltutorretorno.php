@@ -6,10 +6,10 @@ $emilio = $_SESSION['email'];
 $nombre = $_SESSION['nombre'];
 $id = $_SESSION['id'];
 
-$query = "SELECT * FROM CURSO WHERE CURSO_ID_TUTOR ='{$id}'";
+$query = "SELECT * FROM CURSO WHERE CURSO_ID_TUTOR ='{$id}' order by curso_id asc";
 $result =$mysqli->query($query);
 
-$rowCheck = $connection->query("SELECT * FROM CURSO WHERE CURSO_ID_TUTOR = '{$id}' ");
+$rowCheck = $connection->query("SELECT * FROM CURSO WHERE CURSO_ID_TUTOR = '{$id}' order by curso_id asc");
 $rowCount = $rowCheck->fetchColumn();
 
 $row = $result->fetch_array(MYSQLI_NUM);
@@ -38,7 +38,8 @@ $i = 0;
 		 $i++;
 	}	
 
-$cursos_max = sizeof($id_curso);
+	$cursos_max = sizeof($id_curso);
+
 
 	for ($i=0; $i < $cursos_max ; $i++) { 
 		//echo $id_curso[$i];
@@ -50,7 +51,11 @@ $cursos_max = sizeof($id_curso);
 		//$html .= "<img src={$thumb_curso[$i]} width='300px'>";
 		$html .= '<img src="data:image/jpeg;base64,'.base64_encode( $thumb_curso[$i] ).'" height ="200px" width="300px"/>';
 		$html .= "<p class='card-text'>{$descripcion_curso[$i]}</p>";
-		$html .= '<a href="subirclasetutor.php" class="btn btn-primary">Agregar Clases</a>';
+		$html .= "<form method='post' action='subirclasetutor.php'>";
+		$html .= '<input type="text"  value=" '.$id_curso[$i].'" name="selected">';
+		$html .= '<button type="submit" class="btn btn-outline-success my-2 my-sm-0 btnsearch" value="Añadir Clases">';
+		$html .= 'Añadir Clases </button>';
+		$html .= '</form>';
 		$html .= '</div>';
 		$html .= '</div>';
 
