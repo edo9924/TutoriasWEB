@@ -1,44 +1,32 @@
 <?php
-    error_reporting(!E_WARNING | !E_NOTICE);
+include('paneltutorretorno.php');
+    //error_reporting(!E_WARNING | !E_NOTICE);
     // Database connection
     include('database.php');
     
     // Error & success messages
-    global $success_msg, $email_exist, $emptyError1, $emptyError2, $emptyError3, $emptyError4, $emptyError5, $emptyError6, $unmatchedPassword;
-    session_start();
-    $idtutor = $_SESSION['id'];
-
     if(isset($_POST["submit"])) {
-        $c_name        = $_POST["name"];
-        $descripcion   = $_POST["descripcion"];
-        $thumbnail     = $_POST["thumbnail"];
-        $precio        = $_POST["seleccionPrecio"];
-        $clasesporcurso= $_POST["clasesporcurso"];
         $clase_titulo  = $_POST["title"];
         $clase_descripcion  = $_POST["description"];
         $clase_video = $_POST["file"];
-        $idtutor = $_POST["id"];
-
-        // verify if email elsexists
-        $nameCheck = $connection->query( "SELECT * FROM CURSO WHERE curso_nombre = '{$c_name}' ");
-        $rowCount = $nameCheck->fetchColumn();
+        $id_boton = $_POST['selected'];
+        $cantidad_clases = $POST['clasesporcurso'];
+    }
 
         // PHP validation
-        if(!empty($c_name) && !empty($descripcion) && !empty($thumbnail) && !empty($precio) && $clasesporcurso != "contador" ){
+        if(!empty($clase_titulo[0]) && !empty($clase_descripcion[0]) && !empty($clase_video[0]) &&  !empty($clase_titulo[1]) && !empty($clase_descripcion[1]) && !empty($clase_video[1]) && !empty($clase_titulo[2]) && !empty($clase_descripcion[2]) && !empty($clase_video[2])){
             
-            // check if user email already exist
-            if($rowCount > 0) {
-                $name_exist = '
-                    <div class="alert alert-danger" role="alert">
-                        El nombre ya está en uso!
-                    </div>
-                ';
-            } else {
+                $_name = mysqli_real_escape_string($connection2, $clase_titulo[0]);
+                $_descripcion = mysqli_real_escape_string($connection2, $clase_descripcion[0]);
+                $_thumbnail = mysqli_real_escape_string($connection2, $clase_video[0]);
+                $_name = mysqli_real_escape_string($connection2, $clase_titulo[1]);
+                $_descripcion = mysqli_real_escape_string($connection2, $clase_descripcion[1]);
+                $_thumbnail = mysqli_real_escape_string($connection2, $clase_video[1]);
+                $_name = mysqli_real_escape_string($connection2, $clase_titulo[2]);
+                $_descripcion = mysqli_real_escape_string($connection2, $clase_descripcion[2]);
+                $_thumbnail = mysqli_real_escape_string($connection2, $clase_video[2]);
 
-                $_name = mysqli_real_escape_string($connection2, $name);
-                $_descripcion = mysqli_real_escape_string($connection2, $email);
-                $_thumbnail = mysqli_real_escape_string($connection2, $password);
-                $_precio = mysqli_real_escape_string($connection2, $password2);
+                }
                 
              if(!preg_match("/^[a-zA-Z ]*$/", $_name)) {
                     $_NameErr = '<div class="alert alert-danger">
@@ -52,55 +40,67 @@
                         </div>';
                 }
 
-                 else {
+            else {
 
-            $sql = $connection->query("INSERT INTO curso (curso_nombre, curso_descripcion, curso_thumb, curso_precio, curso_es_aprobado, curso_id_tutor) 
-            VALUES ('{$c_name}', '{$descripcion}', '{$thumbnail}', '{$precio}', 0, '{$idtutor}')");
-
-            //$selectCurso =  "SELECT * From curso where curso_nombre = '{$c_name}' ";
-            //$query = mysqli_query($connection2, $selectCurso);
-
-            //$sql2 = $connection->query("INSERT INTO clase (clase_titulo, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$name}', '{$descripcion}', '{$thumbnail}', '{$precio}', 0, '{$idtutor}')");
-            
-                if(!$sql){
-                    die("Falló la consulta MySQL!" . mysqli_error($connection));
-                } else {
-                    $success_msg = '<div class="alert alert-success">
-                        ¡Tu curso ha sido enviado a un Administrador para su revisión, pronto tendrás noticias de él!
-                </div>';
+            if($cantidad_clases == 0){
+            $emptyError3 = "Es necesario que agregues una clase";
+            } else if($cantidad_clases == 1){
+                    $sql = $connection->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[0]}', '{$clase_descripcion[0]}', '{$clase_video[0]}', '{$id_boton[0]}')");
+                    if(!$sql){
+                        die("Falló la consulta MySQL!" . mysqli_error($connection));
+                    }           
+                            else {
+                            $success_msg = '<div class="alert alert-success">
+                            ¡Tu curso ha sido enviado a un Administrador para su revisión, pronto tendrás noticias de él!
+                            </div>';
+                            }
                 }
-            }
-        }
-        } else {
-            if(empty($c_name)){
-                $emptyError1 = '<div class="alert alert-danger">
-                    Es necesario que ingreses un nombre.
-                </div>';
-            }
-            if(empty($descripcion)){
-                $emptyError2 = '<div class="alert alert-danger">
-                    Es necesario que ingreses una descripcion.
-                </div>';
-            }
-            if(empty($thumbnail)){
-                $emptyError3 = '<div class="alert alert-danger">
-                    Es necesario que ingreses una imágen.
-                </div>';
-            }
-            if(empty($precio)){
-                $emptyError4 = '<div class="alert alert-danger">
-                    Es necesario que ingreses un precio.
-                </div>';
-            }
-            if($clasesporcurso == "contador"){
-                $emptyError5 = '<div class="alert alert-danger">
-                    Debes agregar almenos una clase.
-                </div>';
-            }
-        }
-    }
 
-    echo $clase_titulo[0];
-    echo $idtutor;
+                else if($cantidad_clases == 2){
+                    $sql = $connection->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[0]}', '{$clase_descripcion[0]}', '{$clase_video[0]}', '{$id_boton[0]}')");
+                    $sql2 = $connection->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[1]}', '{$clase_descripcion[1]}', '{$clase_video[1]}', '{$id_boton[1]}')");
+                    if(!$sql || !$sql2){
+                        die("Falló la consulta MySQL!" . mysqli_error($connection));
+                    }           
+                            else {
+                            $success_msg = '<div class="alert alert-success">
+                            ¡Tu curso ha sido enviado a un Administrador para su revisión, pronto tendrás noticias de él!
+                            </div>';
+                            }
+                }
+
+                else if($cantidad_clases == 3){
+                     $sql = $connection->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[0]}', '{$clase_descripcion[0]}', '{$clase_video[0]}', '{$id_boton[0]}')");
+                    $sql2 = $connection->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[1]}', '{$clase_descripcion[1]}', '{$clase_video[1]}', '{$id_boton[1]}')");
+                    $sql3 = $connection->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[2]}', '{$clase_descripcion[2]}', '{$clase_video[2]}', '{$id_boton[2]}')");
+                    if(!$sql || !$sql2 || !$sql3){
+                        die("Falló la consulta MySQL!" . mysqli_error($connection));
+                    }           
+                            else {
+                            $success_msg = '<div class="alert alert-success">
+                            ¡Tu curso ha sido enviado a un Administrador para su revisión, pronto tendrás noticias de él!
+                            </div>';
+                            }
+                }
+        } else {
+
+            
+                
+            if(empty($clase_titulo[0]) || ($clase_titulo[1]) || $clase_titulo[2]){
+                $emptyError1 = '<div class="alert alert-danger">
+                    Es necesario que ingreses un título.
+                </div>';
+            } 
+            if(empty($clase_descripcion[0]) || ($clase_descripcion[1]) || ($clase_descripcion[2])){
+                $emptyError2 = '<div class="alert alert-danger">
+                    Es necesario que ingreses una descripción.
+                </div>';
+            }
+            if(empty($clase_video[0]) || ($clase_video[1]) || ($clase_video[2])){
+                $emptyError4 = '<div class="alert alert-danger">
+                    Es necesario que ingreses un video.
+                </div>';
+            }
+        }
 
 ?>

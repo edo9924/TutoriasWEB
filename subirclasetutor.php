@@ -1,6 +1,6 @@
-<?php include('subircursotutorretorno.php'); ?>
+<?php include('subirclasetutorretorno.php'); ?>
 <?php include('login_register_option.php'); ?>
-<?php global $cantidadClases; ?>
+<?php global $cantidadClases; ?>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,6 +35,10 @@
       text-align: center;
     }
 
+    .centereddiv {
+      margin:  auto;
+      width: 40%;
+    }
 </style>
 </head>
 <body>
@@ -82,75 +86,17 @@
 
     <!-- INICIO PANEL -->
 <br>
-    <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link" aria-current="page" href="paneltutor.php">Perfil</a>
-    <br>
-    <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="subircursotutor.php">Subir Curso</a>
-  </li>
-  </ul>
-    <div class="centered">
-    <!-- FIN PANEL -->
-
-    <h1>Llena los datos del curso.</h1>
-    <!-- Formulario-->
-<div class="d-flex justify-content-center">
-<form action="" method="post">  
-    <div class="form-group">
-    <label for="InputName">Nombre del curso</label>
-    <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder="Ingresa un nombre para el curso">
-    <?php echo $emptyError1; ?>
-    <?php echo $_NameErr; ?>
-    <?php echo $name_exist; ?>
-  </div>
-  <div class="form-group">
-    <label for="InputName">¿De qué trata su curso?</label>
-    <input type="text" class="form-control" id="desripcion" name="descripcion" aria-describedby="descHelp" placeholder="Ingresa una descripción">
-    <?php echo $emptyError2; ?>
-    <?php echo $_DescriptionErr; ?>
-  </div>
-  
-  <h4>Ingresa una imágen para describir tu curso.</h4>
-  <div class="custom-file form-group">
-    <input type="file" class="custom-file-input" id="thumbnail" name="thumbnail">
-    <label class="custom-file-label" for="customFile">Elige una portada</label>
-    <?php echo $emptyError3; ?>
-  </div>
-  &nbsp;
-  
-<p>Selecciona el valor de tu curso:</p>
-
-<div class = "form-group">
-  <input type="radio" id="bajo" name="seleccionPrecio" value="bajo"
-         checked>
-  <label for="huey">$2.500 CLP</label>
-</div>
-
-<div class = "form-group">
-  <input type="radio" id="medio" name="seleccionPrecio" value="medio">
-  <label for="dewey">$5.000 CLP</label>
-</div>
-
-<div class = "form-group">
-  <input type="radio" id="alto" name="seleccionPrecio" value="alto" onclick="alertarAvanzado()">
-  <label for="louie">$7.500 CLP</label>
-</div>
-
-<div class = "form-group">
-  <input type="radio" id="muy alto" name="seleccionPrecio" value="muyalto" onclick="alertarAvanzado()">
-  <label for="penie">$10.000 CLP</label>
-</div>
-<?php echo $emptyError4; ?>
-
+  <div class="centereddiv">
+  <?php echo $success_msg ?>
   <h1>Llena los datos de la(s) clase(s).</h1>
   <p>Ingresa un título de clase, su descripción y finalmente el video.</p>
   <!-- inicio menu dinámico -->
     <div>
+
+      <form method="post" action="">
             <div id="newRow"></div>
             <button id="addRow" type="button" class="btn btn-info">Añadir Clase</button>
-            <?php echo $emptyError5; ?>
-        </div>
+            <?php echo $emptyError; ?>
     </div>
 <!-- termino menú dinámico -->
 <br><br>
@@ -158,6 +104,8 @@
   <button type="submit" id="submit" name="submit" class="btn btn-primary">Subir Curso</button>
   <br>
 </div>
+</div>
+</form>
 <script type="text/javascript">
     // add row
 
@@ -171,7 +119,7 @@
         html += '<input type="text" name="description[]" class="form-control m-input" placeholder="Ingresa la descripción" autocomplete="off">';
         html += '<input type="file" name="file[]" class="form-control m-input" placeholder="Archivo" autocomplete="off">';
         html += '<div class="input-group-append">';
-        html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
+        html += '<button id="removeRow" type="button" class="btn btn-danger">Remover</button>';
         html += '</div>';
         html += '</div>';
         contador++; 
@@ -199,6 +147,9 @@
     </div>
   </li>
     <br>
+    <?php echo $emptyError1 ?>
+    <?php echo $emptyError2 ?>
+    <?php echo $emptyError4  ?>
 
   <!-- Footer -->
   <section class="">
