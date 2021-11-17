@@ -43,6 +43,7 @@ $i = 0;
 
 	for ($i=0; $i < $cursos_max ; $i++) { 
 		//echo $id_curso[$i];
+		$html .= '<div class="col-md-4 mt-3">';
 		$html .= '<div class="card text-center border-info">';
 		$html .= '<div class="card-header text-center">';
 		$html .= "<h5 class='card-title'>{$nombre_curso[$i]}</h5>";
@@ -52,10 +53,11 @@ $i = 0;
 		$html .= '<img src="data:image/jpeg;base64,'.base64_encode( $thumb_curso[$i] ).'" height ="200px" width="300px"/>';
 		$html .= "<p class='card-text'>{$descripcion_curso[$i]}</p>";
 		$html .= "<form method='post' action='subirclasetutor.php'>";
-		$html .= '<input type="text"  value=" '.$id_curso[$i].'" name="selected">';
+		$html .= '<input type="hidden"  value=" '.$id_curso[$i].'" name="selected">';
 		$html .= '<button type="submit" class="btn btn-outline-success my-2 my-sm-0 btnsearch" value="Añadir Clases">';
 		$html .= 'Añadir Clases </button>';
 		$html .= '</form>';
+		$html .= '</div>';
 		$html .= '</div>';
 		$html .= '</div>';
 
