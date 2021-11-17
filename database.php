@@ -1,10 +1,9 @@
 <?php
 
-    
-
     $hostname = "localhost";
     $username = "root";
     $password = "";
+    $database = "losktutos";
 
     $connection2 = mysqli_connect($hostname, $username, $password, "losktutos") or die ("Conexión no establecida.");
 

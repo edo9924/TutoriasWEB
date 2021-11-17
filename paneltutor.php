@@ -84,7 +84,13 @@
   </div>
 </nav>
     <!-- FIN NAVBAR -->
-
+<script type="text/javascript">
+  function loadCourseId() {
+    var ID_CURSO_SELECCIONADO_STR = document.getElementById('selected').value;
+    ID_CURSO_SELECCIONADO = parseInt(ID_CURSO_SELECCIONADO_STR);
+    window.location.href = "subirclasetutorretorno.php?selected_course=".concat(ID_CURSO_SELECCIONADO); 
+    }
+</script>
     <!-- INICIO PANEL -->
 <br>
 
@@ -106,7 +112,7 @@
   </ul>
   <div class="container">
   <div class="card-deck mt-3">
-  <?php echo $html ?>
+    <?php echo $html ?>
   </div>
   </div>
   <br>
@@ -133,6 +139,7 @@
       <a class="text-white">LosKTutos.com</a>
     </div>
   </footer>
+
 </section>
   <!-- Fin Footer -->
 </body>
