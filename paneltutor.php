@@ -104,6 +104,8 @@
   <div class="container">
   <div class="card-deck mt-3">
     <?php echo $html ?>
+  <div class="row">
+  <?php echo $html ?>
   </div>
   </div>
   <br>
