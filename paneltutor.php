@@ -99,6 +99,7 @@
     </div>
   </li>
   <li class="nav-item">
+    <a class="nav-link" href="subircursotutor.php">Subir Curso</a>
   </li>
   </ul>
   <div class="container">
