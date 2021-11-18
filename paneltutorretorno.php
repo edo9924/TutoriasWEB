@@ -57,8 +57,6 @@ $i = 0;
 		$html .= '<a href="subirclasetutor.php?seleccion_id='.$id_curso[$i].'"><input type="button" class="btn btn-outline-success my-2 my-sm-0 btnsearch" value="¡Agrega Clases!"></a>';
 		$html .= '</button>';
 		$html .= '<input type="hidden"  value=" '.$id_curso[$i].'" name="selected">';
-		$html .= '<button type="submit" class="btn btn-outline-success my-2 my-sm-0 btnsearch" value="Añadir Clases">';
-		$html .= 'Añadir Clases </button>';
 		$html .= '</form>';
 		$html .= '</div>';
 		$html .= '</div>';
