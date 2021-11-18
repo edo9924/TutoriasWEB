@@ -18,13 +18,6 @@ JOIN tutor ON curso.curso_id_tutor=tutor.tutor_id
 WHERE curso.curso_es_aprobado = 1");
 $rowCount = $rowCheck->fetchColumn();
 
-if($_POST['accion']=='Autorizar'){
-	$sql = $connection->query("UPDATE CURSO set curso_es_aprobado = 1 where curso_id = '".$_POST['idcurso']."'");
-	header("Location: peticioncurso.php");
-}elseif($_POST['accion']=='Denegar'){
-	$sql = $connection->query("DELETE FROM CURSO where curso_id = '".$_POST['idcurso']."'");
-	header("Location: peticioncurso.php");
-}
 
 $row = $result->fetch_array(MYSQLI_NUM);
 $html = "";
@@ -39,16 +32,23 @@ $thumb_curso = array();
 
 $i = 0;
 	foreach ($result as $fila) {
-		 //$fila['curso_id'];
 		 $id_curso[$i] = $fila['curso_id'];
 		 $nombre_curso[$i] = $fila['curso_nombre'];
 		 $nombre_tutor[$i] = $fila['tutor_nombre'];
 		 $descripcion_curso[$i] = $fila['curso_descripcion'];
 		 $thumb_curso[$i] = $fila['curso_thumb'];
 		 $i++;
-	}	
+	}        
 
+        $img .= '<div class="carousel-item active">';
+        $img .= '<img class="imgcarrousel" src="data:image/jpeg;base64,'.base64_encode( $thumb_curso[0] ).'"/>';
+        $img .= '</div>';
 $cursos_max = sizeof($id_curso);
+    for ($i=1; $i < $cursos_max ; $i++) {
+        $img .= '<div class="carousel-item">';
+        $img .= '<img class="imgcarrousel" src="data:image/jpeg;base64,'.base64_encode( $thumb_curso[$i] ).'"/>';
+        $img .= '</div>';
+    }
 
 	for ($i=0; $i < $cursos_max ; $i++) { 		
 		$html .= '<div class="heightcard card text-center">';
