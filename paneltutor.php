@@ -102,13 +102,14 @@
   </li>
   </ul>
   <div class="container">
-  <div class="card-deck mt-3">
-    <?php echo $html ?>
   <div class="row">
-  <?php echo $html ?>
+    <?php echo $html ?>
   </div>
   </div>
   <br>
+  <div class="centrardiv">
+  <?php echo $sin_curso ?>
+  </div>
 
      <!-- FIN PANEL -->
      
