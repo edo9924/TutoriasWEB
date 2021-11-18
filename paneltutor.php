@@ -84,14 +84,12 @@
   </div>
 </nav>
     <!-- FIN NAVBAR -->
-
     <!-- INICIO PANEL -->
 <br>
 
     <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="paneltutor.php">Perfil</a>
-    
     <div class="centered centrardiv">
     <br>
     <p>Bienvenido <?php echo $nombre; ?>.</p>
@@ -101,15 +99,17 @@
     </div>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="subircursotutor.php">Subir Curso</a>
   </li>
   </ul>
   <div class="container">
   <div class="row">
-  <?php echo $html ?>
+    <?php echo $html ?>
   </div>
   </div>
   <br>
+  <div class="centrardiv">
+  <?php echo $sin_curso ?>
+  </div>
 
      <!-- FIN PANEL -->
      
@@ -133,6 +133,7 @@
       <a class="text-white">LosKTutos.com</a>
     </div>
   </footer>
+
 </section>
   <!-- Fin Footer -->
 </body>

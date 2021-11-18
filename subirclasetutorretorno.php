@@ -1,17 +1,13 @@
     <?php
-    include('paneltutorretorno.php');
         //error_reporting(!E_WARNING | !E_NOTICE);
         // Database connection
     include('database.php');
     session_start();
+        $curso_seleccionado = $_GET['seleccion_id'];
         $cantidad_clase = $_POST['clasesporcurso'];
         $cantidad_clases = (int)$cantidad_clase;
-        $id_curso_asignado_unparsed = $_POST['selected'];
-        $id_curso_asignado = intval($id_curso_asignado_unparsed);
-        $test = $_SESSION['selected'];
-        echo "el parseado es " . $id_curso_asignado . "el session es " . $test . "el post es " . $id_curso_asignado_unparsed ;
         // Error & success messages
-    if(isset($_POST["submit"])) {
+        if(isset($_POST["submit"])) {
         $clase_titulo  = $_POST["title"];
         $clase_descripcion  = $_POST["description"];
         $clase_video = $_POST["file"];
@@ -57,15 +53,22 @@
 
                     if($cantidad_clases == "contador" || $cantidad_clases == 0){
                         $emptyError3 = "Es necesario que agregues una clase";
-                    }   
-
-                    if($cantidad_clases == 1){
-                        $sqlc1 = $connection2->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[0]}', '{$clase_descripcion[0]}', '{$clase_video[0]}', '{$id_curso_asignado}')");
+                    }   if($cantidad_clases == 1){
+                        //$sqlc1 = $connection2->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[0]}', '{$clase_descripcion[0]}', '{$clase_video[0]}', '{$curso_seleccionado}')");
+                        //TESTING QUERY
+                        $sql = "INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[0]}', '{$clase_descripcion[0]}', '{$clase_video[0]}', '{$curso_seleccionado}')";
+                        if (mysqli_query($conn, $sql)) {
+                            echo "Clases agregadas exitosamente";
+                        } else {
+                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                        }
+                            mysqli_close($conn);
+                        //END TESTING QUERY
                     }
 
-                    if(!$sqlc1){
-                        die("Falló la consulta MySQL para una clase!" . mysqli_error($connection2) . "$id_curso_asignado" . "es la id");  
-                    }           
+                    //if(!$sqlc1){
+                    //    die("Falló la consulta MySQL para una clase!" . mysqli_error($connection2) . "{$curso_seleccionado}" . "es la id");  
+                    //}           
                     else {
                         $success_msg = '<div class="alert alert-success">
                         ¡Tu curso ha sido enviado a un Administrador para su revisión, pronto tendrás noticias desi él!
@@ -74,13 +77,19 @@
 
 
                     if($cantidad_clases == 2){
-                        $sqlc2 = $connection2->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[0]}', '{$clase_descripcion[0]}', '{$clase_video[0]}', '{$id_boton_int}')");
-                        $sqlc2.= $connection2->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[1]}', '{$clase_descripcion[1]}', '{$clase_video[1]}', '{$id_boton_int}')");
-                    }
-                    if(!$sqlc2){
-                        die("Falló la consulta MySQL para dos clases!" . mysqli_error($connection2));
-                    }           
-                    else {
+                        $sqlc2 = "INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[0]}', '{$clase_descripcion[0]}', '{$clase_video[0]}', '{$curso_seleccionado}');";
+                        $sqlc22 = "INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[1]}', '{$clase_descripcion[1]}', '{$clase_video[1]}', '{$curso_seleccionado}')";
+                    
+                    if (mysqli_query($conn, $sqlc2) && mysqli_query($conn, $sqlc22)) {
+                            echo "Clases agregadas exitosamente";
+                        } else {
+                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                        }
+                            mysqli_close($conn);
+                    //if(!$sqlc2){
+                    //    die("Falló la consulta MySQL para dos clases!" . mysqli_error($connection2));
+                    //}           
+                    } else {
                         $success_msg = '<div class="alert alert-success">
                         ¡Tu curso ha sido enviado a un Administrador para su revisión, pronto tendrás noticias de él!
                         </div>';
@@ -88,12 +97,24 @@
                     
 
                     if($cantidad_clases == 3){
-                     $sqlc3 = $connection2->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[0]}', '{$clase_descripcion[0]}', '{$clase_video[0]}', '{$id_boton_int}')");
-                     $sqlc3.= $connection2->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[1]}', '{$clase_descripcion[1]}', '{$clase_video[1]}', '{$id_boton_int}')");
-                     $sqlc3.= $connection2->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[2]}', '{$clase_descripcion[2]}', '{$clase_video[2]}', '{$id_boton_int}')");
-                    }
-                    if(!$sqlc3){
-                    die("Falló la consulta MySQL para tres clases!" . mysqli_error($connection2));
+                    // $sqlc3 = $connection2->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[0]}', '{$clase_descripcion[0]}', '{$clase_video[0]}', '{$$curso_seleccionado}')");
+                     //$sqlc3.= $connection2->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[1]}', '{$clase_descripcion[1]}', '{$clase_video[1]}', '{$curso_seleccionado}')");
+                     //$sqlc3.= $connection2->query("INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[2]}', '{$clase_descripcion[2]}', '{$clase_video[2]}', '{$curso_seleccionado}')");
+                    //}
+
+                    //TESTING QUERY
+                        $sqlc3 = "INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[0]}', '{$clase_descripcion[0]}', '{$clase_video[0]}', '{$curso_seleccionado}');";
+                        $sqlc32 = "INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[1]}', '{$clase_descripcion[1]}', '{$clase_video[1]}', '{$curso_seleccionado}');";
+                        $sqlc33 = "INSERT INTO clase (clase_nombre, clase_descripcion, clase_video, clase_curso_id) VALUES ('{$clase_titulo[2]}', '{$clase_descripcion[2]}', '{$clase_video[2]}', '{$curso_seleccionado}')";
+                         if (mysqli_query($conn, $sqlc3) && mysqli_query($conn, $sqlc32) && mysqli_query($conn, $sqlc33)) {
+                            echo "Clases agregadas exitosamente";
+                        } else {
+                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                        }
+                            mysqli_close($conn);
+
+                    //if(!$sqlc3){
+                    //die("Falló la consulta MySQL para tres clases!" . mysqli_error($connection2));
                     } else {
                     $success_msg = '<div class="alert alert-success">
                     ¡Tu curso ha sido enviado a un Administrador para su revisión, pronto tendrás noticias de él!
