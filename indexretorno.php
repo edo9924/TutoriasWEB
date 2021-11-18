@@ -38,17 +38,9 @@ $i = 0;
 		 $descripcion_curso[$i] = $fila['curso_descripcion'];
 		 $thumb_curso[$i] = $fila['curso_thumb'];
 		 $i++;
-	}        
-
-        $img .= '<div class="carousel-item active">';
-        $img .= '<img class="imgcarrousel" src="data:image/jpeg;base64,'.base64_encode( $thumb_curso[0] ).'"/>';
-        $img .= '</div>';
+	}
+    
 $cursos_max = sizeof($id_curso);
-    for ($i=1; $i < $cursos_max ; $i++) {
-        $img .= '<div class="carousel-item">';
-        $img .= '<img class="imgcarrousel" src="data:image/jpeg;base64,'.base64_encode( $thumb_curso[$i] ).'"/>';
-        $img .= '</div>';
-    }
 
 	for ($i=0; $i < $cursos_max ; $i++) { 		
 		$html .= '<div class="heightcard card text-center">';
