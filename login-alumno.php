@@ -88,10 +88,13 @@
     <div class="fadeIn first">
       <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active actual" aria-current="page" href="#" style="color: blue;">Entrar como alumno</a>
+    <a class="nav-link active actual" aria-current="page" href="login-alumno.php" style="color: blue;">Entrar como alumno</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="login-tutor.php">Entrar como tutor</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="login-admin.php">Entrar como admin</a>
   </li>
 </ul>
     </div>
