@@ -9,13 +9,15 @@ $id = $_SESSION['id'];
 $query = "SELECT curso.curso_id, tutor.tutor_nombre, curso.curso_nombre, curso.curso_thumb, curso.curso_descripcion 
 FROM CURSO 
 JOIN tutor ON curso.curso_id_tutor=tutor.tutor_id
-WHERE curso.curso_es_aprobado = 1";
+WHERE curso.curso_es_aprobado = 1
+ORDER BY curso_id DESC";
 $result =$mysqli->query($query);
 
 $rowCheck = $connection->query("SELECT curso.curso_id, tutor.tutor_nombre, curso.curso_nombre, curso.curso_thumb, curso.curso_descripcion 
 FROM CURSO 
 JOIN tutor ON curso.curso_id_tutor=tutor.tutor_id
-WHERE curso.curso_es_aprobado = 1");
+WHERE curso.curso_es_aprobado = 1
+ORDER BY curso_id DESC");
 $rowCount = $rowCheck->fetchColumn();
 
 
@@ -39,10 +41,8 @@ $i = 0;
 		 $thumb_curso[$i] = $fila['curso_thumb'];
 		 $i++;
 	}
-    
-$cursos_max = sizeof($id_curso);
 
-	for ($i=0; $i < $cursos_max ; $i++) { 		
+	for ($i=0; $i < 3 ; $i++) { 		
 		$html .= '<div class="heightcard card text-center">';
 		$html .= '<div class="card text-center">';
 		$html .= '<div class="card-header">';
