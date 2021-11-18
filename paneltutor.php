@@ -84,20 +84,12 @@
   </div>
 </nav>
     <!-- FIN NAVBAR -->
-<script type="text/javascript">
-  function loadCourseId() {
-    var ID_CURSO_SELECCIONADO_STR = document.getElementById('selected').value;
-    ID_CURSO_SELECCIONADO = parseInt(ID_CURSO_SELECCIONADO_STR);
-    window.location.href = "subirclasetutorretorno.php?selected_course=".concat(ID_CURSO_SELECCIONADO); 
-    }
-</script>
     <!-- INICIO PANEL -->
 <br>
 
     <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="paneltutor.php">Perfil</a>
-    
     <div class="centered centrardiv">
     <br>
     <p>Bienvenido <?php echo $nombre; ?>.</p>
@@ -107,7 +99,6 @@
     </div>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="subircursotutor.php">Subir Curso</a>
   </li>
   </ul>
   <div class="container">

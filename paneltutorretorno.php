@@ -53,7 +53,7 @@ $i = 0;
 		$html .= "<p class='card-text'>{$descripcion_curso[$i]}</p>";
 		$html .= "<form method='post' action='subirclasetutor.php'>";
 		$html .= '<input type="hidden"  value=" '.$id_curso[$i].'" name="selected" id="selected">';
-		$html .= '<a href="subirclasetutor.php?seleccion_id='.$id_curso[$i].'"><input type="button" class="btn btn-outline-success my-2 my-sm-0 btnsearch" value="Hola"></a>';
+		$html .= '<a href="subirclasetutor.php?seleccion_id='.$id_curso[$i].'"><input type="button" class="btn btn-outline-success my-2 my-sm-0 btnsearch" value="¡Agrega Clases!"></a>';
 		$html .= '</button>';
 		$html .= '</form>';
 		$html .= '</div>';
