@@ -1,4 +1,5 @@
 <?php include('login_register_option.php'); ?>
+<?php include('indexretorno.php')?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,39 +101,8 @@
 
 
     <!-- LISTA DE CURSOS -->
-    <div class="heightcard card text-center">
-  	<div class="card-header">
-    Curso por Nicolás Lobos
- 	 </div>
-  	<div class="card-body">
-    <h5 class="card-title">Tu cursito</h5>
-    <img src="img/lobosthumb.jpg" class="cursitotarjeta" alt="Second slide">
-    <p class="card-text">Bueno aquí Nicolás Lobos les explicará como hacerse un pancito.</p>
-    <a href="detallecurso.php" class="btn btn-primary">Ver Detalles</a>
-  	</div>
-  	<div class="card-footer text-muted">
-    Publicado el 19/10/2021
-  	</div>
-	</div>
-	</div>
-	&nbsp;&nbsp;&nbsp;&nbsp;	
-
-	<div class="heightcard card text-center">
-  	<div class="card-header">
-    Curso por el Pelao Open English
- 	 </div>
-  	<div class="card-body">
-    <h5 class="card-title">Open English</h5>
-    <img src="img/pelaothumb.jpg" class="cursitotarjeta" alt="Second slide">
-    <p class="card-text">Tenemos al mismísimo pelao de open english para explicarte.</p>
-    <a href="detallecurso.php" class="btn btn-primary">Ver Detalles</a>
-  	</div>
-  	<div class="card-footer text-muted">
-    Publicado el 19/10/2021
-  	</div>
-	</div>
-	</div>
-	&nbsp;&nbsp;&nbsp;&nbsp;
+    <?php echo $html ?>
+    <?php echo $sin_datos ?>
 
   	<!-- FIN LISTA DE CURSOS -->
 
