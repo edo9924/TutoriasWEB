@@ -87,10 +87,16 @@
     <!-- Tabs -->
     <div class="fadeIn first">
       <ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link active actual" aria-current="page" href="login-admin.php" style="color: blue;">Entrar como Admin</a>
-  </li>
-</ul>
+      <li class="nav-item">
+        <a class="nav-link" href="login-alumno.php">Entrar como alumno</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="login-tutor.php">Entrar como tutor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active actual" aria-current="page" href="login-admin.php" style="color: blue;">Entrar como admin</a>
+      </li>
+      </ul>
     </div>
 
     <!-- Login Form -->

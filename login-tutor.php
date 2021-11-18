@@ -91,7 +91,10 @@
     <a class="nav-link" href="login-alumno.php">Entrar como alumno</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active actual" aria-current="page" href="#" style="color: blue;" href="login-tutor.php">Entrar como tutor</a>
+    <a class="nav-link active actual" aria-current="page" href="login-tutor.php" style="color: blue;">Entrar como tutor</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="login-admin.php">Entrar como admin</a>
   </li>
 </ul>
     </div>
