@@ -1,5 +1,6 @@
 <?php
 include('database.php');
+//error_reporting(!E_WARNING | !E_NOTICE);
 
 session_start();
 $emilio = $_SESSION['email'];

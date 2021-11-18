@@ -1,4 +1,5 @@
 <?php
+//error_reporting(!E_WARNING | !E_NOTICE);
 include('database.php');
 
 session_start();
@@ -60,7 +61,7 @@ $cursos_max = sizeof($id_curso);
 		$html .= "<h5 class='card-title'> {$nombre_curso[$i]} </h5>";
 		$html .= '<img src="data:image/jpeg;base64,'.base64_encode( $thumb_curso[$i] ).'" height ="150px" width="300px"/>';
 		$html .= "<p class='card-text'> {$descripcion_curso[$i]}</p>";
-		$html .= '<a href="detallecurso.php" class="btn btn-primary">Revisar Clase</a>';
+		$html .= '<a href="detallecurso.php?curso_identity='.$id_curso[$i].'" class="btn btn-primary">Revisar Clase</a>';
 		$html .= '</div>';
 		$html .= '<div class="card-footer text-center">';
 		$html .= '<form action="peticioncursoretorno.php" method="POST">';

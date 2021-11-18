@@ -1,5 +1,6 @@
 <?php include('login-alumnoretorno.php'); ?>
 <?php include('login_register_option.php'); ?>
+<?php include('detallecursoretorno.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,6 +41,13 @@
 
     .centeredtext{
       text-align: center;
+    }
+
+    .centereddiv{
+      display: block;
+      margin-left:  auto;
+      margin-right: auto;
+      width: 25%;
     }
 
 </style>
@@ -89,25 +97,7 @@
     <br><br>
 
     <!-- INICIO JUMBOTRON -->
-    <div class="jumbotron">
-  <h1 class="display-4 centeredtext">TITULO DEL CURSO</h1>
-  <img src="img/curso1.png" class="courseimg">
-  <p class="lead centeredtext">En este curso aprenderás muchas cosas como po ejemplo eso que siempre quisiste aprender.</p>
-  <hr class="my-4">
-  <p class="lead">El curso se dicta en las siguientes clases:</p>
-    <a href="#" class="lead">Clase 1.- Introducción al curso.</a>
-    <p>En este curso aprenderás lo básico.</p>
-    <br>
-    <a href="#" class="lead">Clase 2.- Desarolllo del curso.</a>
-    <p>En este curso aprenderás lo intermedio.</p>
-    <br>
-    <a href="#" class="lead">Clase 3.- Conclusión del curso.</a>
-    <p>En este curso aprenderás lo avanzado.</p>
-    <br>
-
-    <a class="btn btn-primary btn-lg" href="registroalumno.php" role="button">Compra este curso.</a>
-  </p>
-</div>
+    <?php echo $html_d; ?>
 <!-- FIN JUMBOTRON -->
 
 
