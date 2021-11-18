@@ -52,7 +52,7 @@ $i = 0;
 		$html .= "<h5 class='card-title'> {$nombre_curso[$i]} </h5>";
 		$html .= '<img src="data:image/jpeg;base64,'.base64_encode( $thumb_curso[$i] ).'" height ="250px" width="450px"/>';
 		$html .= "<p class='card-text'> {$descripcion_curso[$i]}</p>";
-		$html .= '<a href="detallecurso.php" class="btn btn-primary">Ver Detalles</a>';
+		$html .= '<a href="detallecurso.php?curso_identity=' .$id_curso[$i]. '" class="btn btn-primary">Ver Detalles</a>';
 		$html .= '</div>';
 		$html .= '<div class="card-footer text-muted text-center">';
         $html .= 'Publicado el 19/10/2021';
