@@ -61,6 +61,7 @@ $i = 0;
     $fecha_de_compra = $fila3['fecha_de_compra'];
   }
 
+  //COMMON INFORMATION
   if($aprobacion_curso == 1 && $rowCount > 0){
   $html_d = "<div class='jumbotron'>";
   $html_d .= "<h1 class='display-4 centeredtext'>{$nombre_curso}</h1>";
@@ -71,87 +72,107 @@ $i = 0;
   $html_d .= "<hr class='my-4'>";
   $html_d .= "<p class='lead'>El curso se dicta en las siguientes clases:</p>";
 
+  //IF THERE IS ONE CLASS
   if($numClases == 1){
   $html_d .= "<a href='#' class='lead'>Clase 1.- ". $clase_nombre[0] ."</a>";
   $html_d .= "<p>". $clase_descripcion[0] ."</p>";
 
+  //IF THAT CLASS IS BOUGHT BY THE STUDENT
   if($rowsHistorial > 0){
+  //echo "<video src='videos/".$clase_video[0]."' controls width='100%' height='200px' >";
   $html_d .= '<video width = "518" height = "384" controls></video>';
   $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
   $html_d .= '<source src=".'.$clase_video[0].'" type="video/mp4">';
+
+  //IF THE COURSE IS NOT BOUGHT
   } else {
   $html_d .= "<br>"; 
   $html_d .= "<a class='btn btn-primary btn-lg' href='registroalumno.php' role='button'>Compra este curso.</a>";
   }
 
-
+  //COMMON INFORMATION
   $html_d .= "</p>";
   $html_d .= "</div>";
   }
 
 
+  //IF THERE IS TWO CLASSES, FIRST CLASS DESCRIPTION
   if($numClases == 2){
   $$html_d .= "<a href='#' class='lead'>Clase 1.- ". $clase_nombre[0] ."</a>";
   $html_d .= "<p>". $clase_descripcion[0] ."</p>";
 
+  //IF THE CLASS IS BOUGHT
   if($rowsHistorial > 0){
   $html_d .= '<video width = "518" height = "384" controls></video>';
   $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
   $html_d .= '<source src=".'.$clase_video[0].'" type="video/mp4">';
   }
 
+  //SECOND CLASS DESCRIPTION
   $html_d .= "<br>"; 
   $html_d .= "<a href='#' class='lead'>Clase 2.- ". $clase_nombre[1] ."</a>";
   $html_d .= "<p>" . $clase_descripcion[1] ."</p>";
 
+  //IF THE SECOND CLASS IS BOUGHT
   if($rowsHistorial > 0){
   $html_d .= '<video width = "518" height = "384" controls></video>';
   $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
   $html_d .= '<source src=".'.$clase_video[1].'" type="video/mp4">';
   } else {
 
+  //IF THE COURSE IS NOT BOUGHT
   $html_d .= "<br>";
   $html_d .= "<a class='btn btn-primary btn-lg' href='registroalumno.php' role='button'>Compra este curso.</a>";
   }
 
+  //COMMON INFORMATION
   $html_d .= "</p>";
   $html_d .= "</div>";
   }
 
+  //IF THERE IS THREE CLASSES, FIRST CLASS DESCRRIPTION
   if($numClases == 3){
   $html_d .= "<a href='#' class='lead'>Clase 1.- ". $clase_nombre[0] ."</a>";
   $html_d .= "<p>". $clase_descripcion[0] ."</p>";
 
+  //IF THE CLASS IS BOUGHT
 if($rowsHistorial > 0){
   $html_d .= '<video width = "518" height = "384" controls></video>';
   $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
   $html_d .= '<source src=".'.$clase_video[0].'" type="video/mp4">';
   }
 
+  //SECOND CLASS DESCRIPTION
   $html_d .= "<br>"; 
   $html_d .= "<a href='#' class='lead'>Clase 2.- ". $clase_nombre[1] ."</a>";
   $html_d .= "<p>" . $clase_descripcion[1] ."</p>";
 
+  //IF THE CLASS IS BOUGHT
   if($rowsHistorial > 0){
   $html_d .= '<video width = "518" height = "384" controls></video>';
   $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
   $html_d .= '<source src=".'.$clase_video[1].'" type="video/mp4">';
   }
 
+  //THIRD CLASS DESCRIPTION
   $html_d .= "<br>";
   $html_d .= "<a href='#' class='lead'>Clase 3.- ". $clase_nombre[2] ."</a>";
   $html_d .= "<p>". $clase_descripcion[2] ."</p>";
 
+  //IF THE CLASS IS BOUGHT
   if($rowsHistorial > 0){
   $html_d .= '<video width = "518" height = "384" controls></video>';
   $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
   $html_d .= '<source src=".'.$clase_video[2].'" type="video/mp4">';
+
+  //IF THE COURSE IS NOT BOUGHT
   } else {
 
     $html_d .= "<br>";
     $html_d .= "<a class='btn btn-primary btn-lg' href='registroalumno.php' role='button'>Compra este curso.</a>";
   }
 
+  //COMMON INFORMATION
   $html_d .= "</p>";
   $html_d .= "</div>";
   }

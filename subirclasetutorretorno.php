@@ -13,7 +13,7 @@
         $clase_video = $_FILES["file"];
 
             // PHP validation
-            if(!empty($clase_titulo[0]) && !empty($clase_descripcion[0]) && !empty($clase_video[0])){
+            //if(!empty($clase_titulo[0]) && !empty($clase_descripcion[0]) && !empty($clase_video[0])){
 
             $nameCheck = $connection->query( "SELECT * FROM CLASE WHERE clase_nombre = '{$clase_titulo}' ");
             $rowCount = $nameCheck->fetchColumn();
@@ -139,5 +139,4 @@
                 </div>';
             }
         }
-    }
 ?>
