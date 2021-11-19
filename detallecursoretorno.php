@@ -1,5 +1,6 @@
   <?php
   include('database.php');
+  error_reporting(!E_WARNING | !E_NOTICE);
   $idCurso = $_GET['curso_identity'];
   $id = $_SESSION['id'];
   $tipo_sesion = $_SESSION['sessiontype'];
