@@ -21,7 +21,6 @@ $numClases = $rows['num'];
 $query3 = "SELECT * FROM HISTORIAL_COMPRA WHERE CURSO_ID = '{$idCurso}' and alumno_id = '{$id}'";
 $historialCheck = $connection->query("SELECT * FROM HISTORIAL_COMPRA WHERE CURSO_ID = '{$idCurso}' and alumno_id = '{$id}'");
 $rowsHistorial = $historialCheck->fetchColumn();
-
   foreach ($result as $fila) {
      //$fila['curso_id'];
      $id_curso = $fila['curso_id'];
@@ -79,7 +78,7 @@ $i = 0;
   $html_d .= "<p>". $clase_descripcion[0] ."</p>";
 
   //IF THAT CLASS IS BOUGHT BY THE STUDENT
-  if($rowsHistorial > 0 || $tipo_sesion ="administrador"){
+  if($rowsHistorial != "" && ($rowsHistorial > 0 || $tipo_sesion ="administrador")){
   //echo "<video src='videos/".$clase_video[0]."' controls width='100%' height='200px' >";
   $html_d .= '<iframe width="420" height="315" src="https://www.youtube.com/embed/'. substr($clase_video[0], 32).'"> </iframe>';
 
@@ -101,7 +100,7 @@ $i = 0;
   $html_d .= "<p>". $clase_descripcion[0] ."</p>";
 
   //IF THE CLASS IS BOUGHT
-  if($rowsHistorial > 0 || $tipo_sesion ="administrador"){
+  if($rowsHistorial != "" && ($rowsHistorial > 0 || $tipo_sesion ="administrador")){
   $html_d .= '<iframe width="420" height="315" src="https://www.youtube.com/embed/'. substr($clase_video[0], 32).'"> </iframe>';
   }
 
@@ -111,7 +110,7 @@ $i = 0;
   $html_d .= "<p>" . $clase_descripcion[1] ."</p>";
 
   //IF THE SECOND CLASS IS BOUGHT
-  if($rowsHistorial > 0 || $tipo_sesion ="administrador"){
+  if($rowsHistorial != "" && ($rowsHistorial > 0 || $tipo_sesion ="administrador")){
   $html_d .= '<iframe width="420" height="315" src="https://www.youtube.com/embed/'. substr($clase_video[1], 32).'"> </iframe>';
   } else {
 
@@ -131,7 +130,7 @@ $i = 0;
   $html_d .= "<p>". $clase_descripcion[0] ."</p>";
 
   //IF THE CLASS IS BOUGHT
-  if($rowsHistorial > 0 || $tipo_sesion ="administrador"){
+  if($rowsHistorial != "" && ($rowsHistorial > 0 || $tipo_sesion ="administrador")){
   $html_d .= '<iframe width="420" height="315" src="https://www.youtube.com/embed/'. substr($clase_video[0], 32).'"> </iframe>';
   }
 
@@ -141,7 +140,7 @@ $i = 0;
   $html_d .= "<p>" . $clase_descripcion[1] ."</p>";
 
   //IF THE CLASS IS BOUGHT
-  if($rowsHistorial > 0 || $tipo_sesion ="administrador"){
+  if($rowsHistorial != "" && ($rowsHistorial > 0 || $tipo_sesion ="administrador")){
   $html_d .= '<iframe width="420" height="315" src="https://www.youtube.com/embed/'. substr($clase_video[1], 32).'"> </iframe>';
   }
 
@@ -151,7 +150,7 @@ $i = 0;
   $html_d .= "<p>". $clase_descripcion[2] ."</p>";
 
   //IF THE CLASS IS BOUGHT
-  if($rowsHistorial > 0 || $tipo_sesion ="administrador"){
+  if($rowsHistorial != "" && ($rowsHistorial > 0 || $tipo_sesion ="administrador")){
   $html_d .= '<iframe width="420" height="315" src="https://www.youtube.com/embed/'. substr($clase_video[2], 32).'"> </iframe>';
 
   //IF THE COURSE IS NOT BOUGHT
