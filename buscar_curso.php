@@ -1,12 +1,12 @@
-<?php include('login-alumnoretorno.php'); ?>
 <?php include('login_register_option.php'); ?>
+<?php include('buscar_cursoretorno.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
 	<title>Maqueta Tutorías</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
+	<style>
 		.carousel-item {
  	 	height: 500px;
 		}
@@ -25,21 +25,10 @@
     	background-color: #FFFFFF;
 		}
 
-    
-
-    .imgquiensomos{
-      width: 550px;
-      height: 150px;  
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+    .cursitotarjeta {
+      width: 50%;
+      height: 50%;
     }
-    .parrafo{
-        margin-left: 650px;
-      margin-right: 650px;
-    }
-
-    
 
 </style>
 </head>
@@ -55,7 +44,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <form action="buscar_curso.php" class="form-inline my-2 my-lg-0" method="post">
+    <form action="buscar_curso.php" class="form-inline my-2 my-lg-0" method="post">
       <input class="form-control ml-sm-2" type="text" name="busqueda" placeholder="Buscar">
       <input class="btn btn-outline-success my-2 my-sm-0 btnsearch" name="buscar" value="Buscar cursos" type="submit">
     </form>
@@ -85,26 +74,18 @@
   </div>
 </nav>
     <!-- FIN NAVBAR -->
-    <br><br>
 
-    <!-- QUIENES SOMOS -->
-    <div style="text-align: center;">
-    <h2>QUIENES SOMOS</h2>
-    <br>
-    <img src="img/logoquiensomos.png" class="imgquiensomos">
-    <br>
-    <font size=6>
-        <p class="parrafo">Somos un equipo de trabajo y estudiantes de ingenieria en informatica dedicados a ayudar, a los alumnos de primer año de carreras relacionadas con la informatica a travez de cursos online, con el objetivo de mejorar el rendimiento academico y a la vez crear un ingreso extra a los tutores los cuales tambien son estudiantes mas avansados en su carrera informatica.</p>
-    </font>
+
+    <!-- LISTA DE CURSOS -->
+    <div class="container">
+    <div class="row">
+    <?php echo $html; ?>
     </div>
-    <br>
-    <br>
-    
-<!-- QUIENES SOMOS -->
-
+    </div>
+  	<!-- FIN LISTA DE CURSOS -->
 
   <!-- Footer -->
-  <section class="footer">
+  <section class="">
   <footer class="text-center text-white" style="background-color: #0275d8;">
     <div class="container p-4 pb-0">
       <section class="">
