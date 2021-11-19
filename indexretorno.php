@@ -1,6 +1,5 @@
 <?php
 include('database.php');
-include('compracursoretorno.php');
 
 session_start();
 $emilio = $_SESSION['email'];
@@ -10,15 +9,13 @@ $id = $_SESSION['id'];
 $query = "SELECT curso.curso_id, tutor.tutor_nombre, curso.curso_nombre, curso.curso_thumb, curso.curso_descripcion 
 FROM CURSO 
 JOIN tutor ON curso.curso_id_tutor=tutor.tutor_id
-WHERE curso.curso_es_aprobado = 1
-ORDER BY curso_id DESC";
+WHERE curso.curso_es_aprobado = 1";
 $result =$mysqli->query($query);
 
 $rowCheck = $connection->query("SELECT curso.curso_id, tutor.tutor_nombre, curso.curso_nombre, curso.curso_thumb, curso.curso_descripcion 
 FROM CURSO 
 JOIN tutor ON curso.curso_id_tutor=tutor.tutor_id
-WHERE curso.curso_es_aprobado = 1
-ORDER BY curso_id DESC");
+WHERE curso.curso_es_aprobado = 1");
 $rowCount = $rowCheck->fetchColumn();
 
 
@@ -42,8 +39,10 @@ $i = 0;
 		 $thumb_curso[$i] = $fila['curso_thumb'];
 		 $i++;
 	}
+    
+$cursos_max = sizeof($id_curso);
 
-	for ($i=0; $i < 3 ; $i++) { 		
+	for ($i=0; $i < $cursos_max ; $i++) { 		
 		$html .= '<div class="heightcard card text-center">';
 		$html .= '<div class="card text-center">';
 		$html .= '<div class="card-header">';
@@ -53,7 +52,7 @@ $i = 0;
 		$html .= "<h5 class='card-title'> {$nombre_curso[$i]} </h5>";
 		$html .= '<img src="data:image/jpeg;base64,'.base64_encode( $thumb_curso[$i] ).'" height ="250px" width="450px"/>';
 		$html .= "<p class='card-text'> {$descripcion_curso[$i]}</p>";
-		$html .= '<a href="detallecurso.php?curso_identity=' .$id_curso[$i]. '" class="btn btn-primary">Ver Detalles</a>';
+		$html .= '<a href="detallecurso.php" class="btn btn-primary">Ver Detalles</a>';
 		$html .= '</div>';
 		$html .= '<div class="card-footer text-muted text-center">';
         $html .= 'Publicado el 19/10/2021';
