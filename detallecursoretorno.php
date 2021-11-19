@@ -96,7 +96,7 @@
 
     //IF THERE IS TWO CLASSES, FIRST CLASS DESCRIPTION
     if($numClases == 2){
-    $$html_d .= "<a href='#' class='lead'>Clase 1.- ". $clase_nombre[0] ."</a>";
+    $html_d .= "<a href='#' class='lead'>Clase 1.- ". $clase_nombre[0] ."</a>";
     $html_d .= "<p>". $clase_descripcion[0] ."</p>";
 
     //IF THE CLASS IS BOUGHT
@@ -172,6 +172,5 @@
     $html_d .= "<h1 style='text-align: center;'>Oops!</h1>";
     $html_d .= "<h2 style='text-align: center;'>El curso no existe o la cantidad de clases es igual a cero</h1>";
     }
-
     
   ?>
