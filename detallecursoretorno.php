@@ -62,7 +62,7 @@
     }
 
     //COMMON INFORMATION
-    if($aprobacion_curso == 1 && || $rowCount > 0 || $tipo_sesion == "administrador"){
+    if($aprobacion_curso == 1 || $rowCount > 0 || $tipo_sesion == "administrador"){
     $html_d = "<div class='jumbotron'>";
     $html_d .= "<h1 class='display-4 centeredtext'>{$nombre_curso}</h1>";
     $html_d .= "<div class='centereddiv'>";
