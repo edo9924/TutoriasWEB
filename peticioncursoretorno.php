@@ -23,7 +23,8 @@ if($_POST['accion']=='Autorizar'){
 	$sql = $connection->query("UPDATE CURSO set curso_es_aprobado = 1 where curso_id = '".$_POST['idcurso']."'");
 	header("Location: peticioncurso.php");
 }elseif($_POST['accion']=='Denegar'){
-	$sql = $connection->query("DELETE FROM CURSO where curso_id = '".$_POST['idcurso']."'");
+	$sql = $connection->query("DELETE FROM CLASE where clase_curso_id = '".$_POST['idcurso']."'");
+	$sql2 = $connection->query("DELETE FROM CURSO where curso_id = '".$_POST['idcurso']."'");
 	header("Location: peticioncurso.php");
 }
 
