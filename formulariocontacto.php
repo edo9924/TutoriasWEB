@@ -86,23 +86,46 @@
               <b>CONTACTANOS</b>
           </span>
       </header>
-      <form action="" class="contact">
+      <form action="enviar.php" method="post" class="contact">
           <label for="nombres">Nombres</label>
-          <input type="text" name="nombres" id="nombres">
+          <input type="text" name="nombres" id="nombres" class="nombres">
 
           <label for="apellido">Apellido</label>
-          <input type="text" name="apellido" id="apellido">
+          <input type="text" name="apellido" id="apellido" class="apellido">
 
           <label for="correo">Correo</label>
-          <input type="text" name="correo" id="correo">
+          <input type="text" name="correo" id="correo" class="correo">
 
           <label for="celular">Celular</label>
-          <input type="text" name="celular" id="celular">
+          <input type="text" name="celular" id="celular" class="celular">
 
           <label for="mensaje">Mensaje</label>
-          <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+          <textarea name="mensaje" class="mensaje" id="mensaje" cols="30" rows="10"></textarea>
           <input type="submit" value="ENVIAR">
       </form>
+      <div>
+        <?php
+          if(isset($_GET["estado"])){
+            if($_GET["estado"] === "1"){
+              ?>
+
+              <div class="alert alert-danger" role="alert">
+                <strong>¡Error!</strong> Debes completar los datos
+              </div>
+
+              <?php
+            }else if($_GET["estado"] === "2"){
+              ?>
+ 
+              <div class="alert alert-success" role="alert">
+                <strong>¡Enviado!</strong> Tu mensaje fue enviado con Exito!
+              </div>
+
+              <?php
+          }
+        }
+        ?>
+      </div>
   </SEction>
    </div>
    <br>
