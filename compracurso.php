@@ -84,8 +84,8 @@
   <div class="centereddiv">
    <h1>Página de simulación de compra de cursos</h1>
    <form method="post" action="">  
-    <textarea id="idalumno" name="idalumno" rows="1" cols="50">Ingrese la ID del alumno</textarea>
-    <textarea id="idcurso" name="idcurso" rows="1" cols="50">Ingrese la ID del curso a comprar</textarea>
+    <input id="idalumno" name="idalumno" rows="1" cols="50" placeholder="Ingrese la ID del alumno">
+    <input id="idcurso" name="idcurso" rows="1" cols="50" placeholder="Ingrese la ID del curso a comprar">
     <input type="submit" name="submit" value="Comprar curso">
     <?php echo $success_msg ?>
     <p>Porfavor, asegurese de que las ID existan en la base de datos.</p>

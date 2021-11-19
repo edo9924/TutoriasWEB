@@ -72,7 +72,7 @@ if($rowCount2 > 0){
 		$html .= "<h5 class='card-title'> {$nombre_curso[$i]} </h5>";
 		$html .= '<img src="data:image/jpeg;base64,'.base64_encode( $imagen[$i] ).'" height ="150px" width="300px"/>';
 		$html .= "<p class='card-text'> {$descripcion[$i]}</p>";
-		$html .= '<a href="detallecurso.php" class="btn btn-primary">Entrar</a>';
+		$html .= '<a href="detallecurso.php?curso_identity=' .$id_curso[$i]. '" class="btn btn-primary">Entrar</a>';
 		$html .= '</div>';
 		$html .= '<div class="card-footer text-muted text-center">';
 		$html .= "<a>Fecha de compra: {$fechac[$i]}</a>";
