@@ -30,6 +30,13 @@
       height: 50%;
     }
 
+    .centereddiv {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width:  30%;
+    }
+
 </style>
 </head>
 <body>
@@ -74,11 +81,18 @@
   </div>
 </nav>
     <!-- FIN NAVBAR -->
-
+  <div class="centereddiv">
    <h1>Página de simulación de compra de cursos</h1>
-   <?php echo $html ?>
-   <?php echo $sin_datos ?>
+   <form method="post" action="">  
+    <textarea id="idalumno" name="idalumno" rows="1" cols="50">Ingrese la ID del alumno</textarea>
+    <textarea id="idcurso" name="idcurso" rows="1" cols="50">Ingrese la ID del curso a comprar</textarea>
+    <input type="submit" name="submit" value="Comprar curso">
+    <?php echo $success_msg ?>
+    <p>Porfavor, asegurese de que las ID existan en la base de datos.</p>
 
+    </div>
+    </form>
+    <br>
   	<!-- FIN LISTA DE CURSOS -->
 
   <!-- Footer -->
