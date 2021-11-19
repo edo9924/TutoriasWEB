@@ -35,8 +35,10 @@
       margin-right: auto;
     }
     .parrafo{
-        margin-left: 650px;
-      margin-right: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width:  30%;
     }
 
     
