@@ -1,5 +1,6 @@
 <?php
 include('database.php');
+include('compracursoretorno.php');
 
 session_start();
 $emilio = $_SESSION['email'];

@@ -85,7 +85,7 @@
     //IF THE COURSE IS NOT BOUGHT
     } else {
     $html_d .= "<br>"; 
-    $html_d .= "<a class='btn btn-primary btn-lg' href='registroalumno.php' role='button'>Compra este curso.</a>";
+    $html_d .= "<a class='btn btn-primary btn-lg' href='compracurso.php' role='button'>Compra este curso.</a>";
     }
 
     //COMMON INFORMATION
@@ -116,7 +116,7 @@
 
     //IF THE COURSE IS NOT BOUGHT
     $html_d .= "<br>";
-    $html_d .= "<a class='btn btn-primary btn-lg' href='registroalumno.php' role='button'>Compra este curso.</a>";
+    $html_d .= "<a class='btn btn-primary btn-lg' href='compracurso.php' role='button'>Compra este curso.</a>";
     }
 
     //COMMON INFORMATION
@@ -157,7 +157,7 @@
     } else {
 
       $html_d .= "<br>";
-      $html_d .= "<a class='btn btn-primary btn-lg' href='registroalumno.php' role='button'>Compra este curso.</a>";
+      $html_d .= "<a class='btn btn-primary btn-lg' href='compracurso.php' role='button'>Compra este curso.</a>";
     }
 
     //COMMON INFORMATION
