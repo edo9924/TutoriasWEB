@@ -79,10 +79,12 @@ $i = 0;
   $html_d .= '<video width = "518" height = "384" controls></video>';
   $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
   $html_d .= '<source src=".'.$clase_video[0].'" type="video/mp4">';
-  }
-
+  } else {
   $html_d .= "<br>"; 
   $html_d .= "<a class='btn btn-primary btn-lg' href='registroalumno.php' role='button'>Compra este curso.</a>";
+  }
+
+
   $html_d .= "</p>";
   $html_d .= "</div>";
   }
@@ -106,10 +108,12 @@ $i = 0;
   $html_d .= '<video width = "518" height = "384" controls></video>';
   $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
   $html_d .= '<source src=".'.$clase_video[1].'" type="video/mp4">';
-  }
+  } else {
 
   $html_d .= "<br>";
   $html_d .= "<a class='btn btn-primary btn-lg' href='registroalumno.php' role='button'>Compra este curso.</a>";
+  }
+
   $html_d .= "</p>";
   $html_d .= "</div>";
   }
@@ -142,10 +146,12 @@ if($rowsHistorial > 0){
   $html_d .= '<video width = "518" height = "384" controls></video>';
   $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
   $html_d .= '<source src=".'.$clase_video[2].'" type="video/mp4">';
+  } else {
+
+    $html_d .= "<br>";
+    $html_d .= "<a class='btn btn-primary btn-lg' href='registroalumno.php' role='button'>Compra este curso.</a>";
   }
 
-  $html_d .= "<br>";
-  $html_d .= "<a class='btn btn-primary btn-lg' href='registroalumno.php' role='button'>Compra este curso.</a>";
   $html_d .= "</p>";
   $html_d .= "</div>";
   }
