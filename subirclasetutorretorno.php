@@ -1,5 +1,5 @@
     <?php
-    //error_reporting(!E_WARNING | !E_NOTICE);
+    error_reporting(!E_WARNING | !E_NOTICE);
         // Database connection
     include('database.php');
     session_start();
