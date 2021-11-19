@@ -10,7 +10,7 @@
         if(isset($_POST["submit"])) {
         $clase_titulo  = $_POST["title"];
         $clase_descripcion  = $_POST["description"];
-        $clase_video = $_POST["file"];
+        $clase_video = $_FILES["file"];
 
             // PHP validation
             if(!empty($clase_titulo[0]) && !empty($clase_descripcion[0]) && !empty($clase_video[0])){
