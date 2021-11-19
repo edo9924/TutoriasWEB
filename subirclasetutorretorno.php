@@ -10,7 +10,7 @@
         if(isset($_POST["submit"])) {
         $clase_titulo  = $_POST["title"];
         $clase_descripcion  = $_POST["description"];
-        $clase_video = $_FILES["file"];
+        $clase_video = $_POST["file"];
 
             // PHP validation
             //if(!empty($clase_titulo[0]) && !empty($clase_descripcion[0]) && !empty($clase_video[0])){
@@ -36,20 +36,6 @@
                 $_descripcion = mysqli_real_escape_string($connection2, $clase_descripcion[2]);
                 $_thumbnail = mysqli_real_escape_string($connection2, $clase_video[2]);
 
-
-                if(!preg_match("/^[a-zA-Z ]*$/", $_name)) {
-                    $_NameErr = '<div class="alert alert-danger">
-                    Sólo se permiten letras y espacios.
-                    </div>';
-                }
-
-                if(!preg_match("/^[a-zA-Z ]*$/", $_descripcion)) {
-                    $_DescriptionErr = '<div class="alert alert-danger">
-                    Sólo se permiten letras y espacios.
-                    </div>';
-                }
-
-                else {
 
                     if($cantidad_clases == "contador" || $cantidad_clases == 0){
                         $emptyError3 = "Es necesario que agregues una clase";
@@ -120,7 +106,6 @@
                     ¡Tu curso ha sido enviado a un Administrador para su revisión, pronto tendrás noticias de él!
                     </div>';
                     }
-                }
             }          
             } else {       
                 if(empty($clase_titulo[1]) || $clase_titulo[2]){

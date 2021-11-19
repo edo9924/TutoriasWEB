@@ -89,7 +89,8 @@
   <div class="centereddiv">
   <?php echo $success_msg ?>
   <h1>Llena los datos de la(s) clase(s).</h1>
-  <p>Ingresa un título de clase, su descripción y finalmente el video.</p>
+  <p>Ingresa un título de clase, su descripción y finalmente el link a youtube del video.</p>
+  <p>El link debe ser con el siguiente formato: https://www.youtube.com/watch?v=dQw4w9WgXcQ</p>
   <!-- inicio menu dinámico -->
     <div>
 
@@ -117,7 +118,7 @@
         html += '<div class="input-group mb-3">';
         html += '<input type="text" name="title[]" class="form-control m-input" placeholder="Ingresa el título" autocomplete="off">';
         html += '<input type="text" name="description[]" class="form-control m-input" placeholder="Ingresa la descripción" autocomplete="off">';
-        html += '<input type="file" name="file[]" class="form-control m-input" placeholder="Archivo" autocomplete="off" accept="video/*">';
+        html += '<input type="text" name="file[]" class="form-control m-input" placeholder="Link a YouTube" autocomplete="off">';
         html += '<div class="input-group-append">';
         html += '<button id="removeRow" type="button" class="btn btn-danger">Remover</button>';
         html += '</div>';

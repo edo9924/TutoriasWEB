@@ -2,6 +2,7 @@
 include('database.php');
 $idCurso = $_GET['curso_identity'];
 $id = $_SESSION['id'];
+$tipo_sesion = $_SESSION['sessiontype'];
 $html_d = "";
 
 $query = "SELECT * FROM CURSO WHERE CURSO_ID ='{$idCurso}'";
@@ -62,7 +63,7 @@ $i = 0;
   }
 
   //COMMON INFORMATION
-  if($aprobacion_curso == 1 && $rowCount > 0){
+  if($aprobacion_curso == 1 && $rowCount > 0 || $tipo_sesion = "administrador"){
   $html_d = "<div class='jumbotron'>";
   $html_d .= "<h1 class='display-4 centeredtext'>{$nombre_curso}</h1>";
   $html_d .= "<div class='centereddiv'>";
@@ -78,11 +79,9 @@ $i = 0;
   $html_d .= "<p>". $clase_descripcion[0] ."</p>";
 
   //IF THAT CLASS IS BOUGHT BY THE STUDENT
-  if($rowsHistorial > 0){
+  if($rowsHistorial > 0 || $tipo_sesion ="administrador"){
   //echo "<video src='videos/".$clase_video[0]."' controls width='100%' height='200px' >";
-  $html_d .= '<video width = "518" height = "384" controls></video>';
-  $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
-  $html_d .= '<source src=".'.$clase_video[0].'" type="video/mp4">';
+  $html_d .= '<iframe width="420" height="315" src="https://www.youtube.com/embed/'. substr($clase_video[0], 32).'"> </iframe>';
 
   //IF THE COURSE IS NOT BOUGHT
   } else {
@@ -102,10 +101,8 @@ $i = 0;
   $html_d .= "<p>". $clase_descripcion[0] ."</p>";
 
   //IF THE CLASS IS BOUGHT
-  if($rowsHistorial > 0){
-  $html_d .= '<video width = "518" height = "384" controls></video>';
-  $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
-  $html_d .= '<source src=".'.$clase_video[0].'" type="video/mp4">';
+  if($rowsHistorial > 0 || $tipo_sesion ="administrador"){
+  $html_d .= '<iframe width="420" height="315" src="https://www.youtube.com/embed/'. substr($clase_video[0], 32).'"> </iframe>';
   }
 
   //SECOND CLASS DESCRIPTION
@@ -114,10 +111,8 @@ $i = 0;
   $html_d .= "<p>" . $clase_descripcion[1] ."</p>";
 
   //IF THE SECOND CLASS IS BOUGHT
-  if($rowsHistorial > 0){
-  $html_d .= '<video width = "518" height = "384" controls></video>';
-  $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
-  $html_d .= '<source src=".'.$clase_video[1].'" type="video/mp4">';
+  if($rowsHistorial > 0 || $tipo_sesion ="administrador"){
+  $html_d .= '<iframe width="420" height="315" src="https://www.youtube.com/embed/'. substr($clase_video[1], 32).'"> </iframe>';
   } else {
 
   //IF THE COURSE IS NOT BOUGHT
@@ -136,10 +131,8 @@ $i = 0;
   $html_d .= "<p>". $clase_descripcion[0] ."</p>";
 
   //IF THE CLASS IS BOUGHT
-if($rowsHistorial > 0){
-  $html_d .= '<video width = "518" height = "384" controls></video>';
-  $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
-  $html_d .= '<source src=".'.$clase_video[0].'" type="video/mp4">';
+  if($rowsHistorial > 0 || $tipo_sesion ="administrador"){
+  $html_d .= '<iframe width="420" height="315" src="https://www.youtube.com/embed/'. substr($clase_video[0], 32).'"> </iframe>';
   }
 
   //SECOND CLASS DESCRIPTION
@@ -148,10 +141,8 @@ if($rowsHistorial > 0){
   $html_d .= "<p>" . $clase_descripcion[1] ."</p>";
 
   //IF THE CLASS IS BOUGHT
-  if($rowsHistorial > 0){
-  $html_d .= '<video width = "518" height = "384" controls></video>';
-  $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
-  $html_d .= '<source src=".'.$clase_video[1].'" type="video/mp4">';
+  if($rowsHistorial > 0 || $tipo_sesion ="administrador"){
+  $html_d .= '<iframe width="420" height="315" src="https://www.youtube.com/embed/'. substr($clase_video[1], 32).'"> </iframe>';
   }
 
   //THIRD CLASS DESCRIPTION
@@ -160,10 +151,8 @@ if($rowsHistorial > 0){
   $html_d .= "<p>". $clase_descripcion[2] ."</p>";
 
   //IF THE CLASS IS BOUGHT
-  if($rowsHistorial > 0){
-  $html_d .= '<video width = "518" height = "384" controls></video>';
-  $html_d .= "<source='data:video/mp4;base64,".base64_encode( $clase_video[0] )."' height ='1024px' width='768px'/>";
-  $html_d .= '<source src=".'.$clase_video[2].'" type="video/mp4">';
+  if($rowsHistorial > 0 || $tipo_sesion ="administrador"){
+  $html_d .= '<iframe width="420" height="315" src="https://www.youtube.com/embed/'. substr($clase_video[2], 32).'"> </iframe>';
 
   //IF THE COURSE IS NOT BOUGHT
   } else {
@@ -184,6 +173,5 @@ if($rowsHistorial > 0){
   $html_d .= "<h1 style='text-align: center;'>Oops!</h1>";
   $html_d .= "<h2 style='text-align: center;'>El curso no existe o la cantidad de clases es igual a cero</h1>";
   }
-  echo 'la cantidad de rows de historia es ' . $rowsHistorial;
-
+  
 ?>
